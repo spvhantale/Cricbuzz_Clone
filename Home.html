@@ -6,16 +6,43 @@
     <title>Document</title>
     <style>
         body{
-            width: 70%;
+            width: 80%;
             margin: auto;
-            /* background-color: rgb(227,230,227); */
+        }
+        .score{
+            border-left: 1px solid grey;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: white;
+        }
+        .score>div{
+            display: flex;
+        }
+        .score>div>p{
+            padding-right: 10px;
+        }
+        #homepageslider{
+            padding-bottom: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #homepageslider>h3{
+            padding-top: 10px;
+            padding-left: 10px;
+            color: rgb(2,128,98);
+        }
+        #slider{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        
         }
         #homepagebody{
+            padding-top: 20px;
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 20px;
         }
-        .middlepagenews,.leftpagenews,.latestphotsview,.scheduleview{
+        .middlepagenews,.leftpagenews,.latestphotsview,.scheduleview,.specialsview{
             padding: 0px 20px;
             border-top: 1px solid gray;
             background-color: white; 
@@ -24,7 +51,7 @@
         #middleview{
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
-        #leftview{
+        #leftview,#rightview{
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             padding: 0px 10px;
         }
@@ -34,13 +61,17 @@
         .leftpagenews{
             border-top: 1px solid gray;
             background-color: white;
-            
         }
+      
     </style>
 </head>
 <body>
     <div id="homepageslider">
-
+        <h3>FEATURED MATCHES</h3>
+        <div id="slider">
+            
+    
+        </div>
     </div>
     <div id="homepagebody">
         <div id="leftview">
@@ -60,10 +91,13 @@
         <div id="middleview">
 
         </div>
-        <div id="specials">
-            <h3>SPECIALS</h3>
-
+        <div id="rightview">
+            <div id="specials">
+                <h3>SPECIALS</h3>
+    
+            </div>
         </div>
+        
     </div>
 </body>
 </html>
@@ -71,28 +105,75 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '7bff75051bmshce927f124e15e82p170432jsn30b390a7e73a',
+		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+	}
+};
+fetch('https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=international', options)
+	.then(response => response.json())
+	.then(response => append3(response.scheduleAdWrapper))
+	.catch(err => console.error(err));
+fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
+	.then(response => response.json())
+	.then(response => append(response.newsList))
+	.catch(err => console.error(err));
+    const option = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
 
-fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', options)
-	.then(response => response.json())
-	.then(response => append(response.storyList))
-	.catch(err => console.error(err));
-fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', options)
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', option)
 	.then(response => response.json())
 	.then(response => append2(response.photoGalleryInfoList))
 	.catch(err => console.error(err));
-fetch('https://cricbuzz-cricket.p.rapidapi.com/schedule/v1/international', options)
-	.then(response => response.json())
-	.then(response => append3(response.matchScheduleMap))
-	.catch(err => console.error(err));
 
-fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/detail/5374', options)
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/detail/5374', option)
 	.then(response => response.json())
 	.then(response => append4(response.photoGalleryDetails))
 	.catch(err => console.error(err));
+
+fetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', option)
+	.then(response => response.json())
+	.then(response => append0(response.typeMatches[0].seriesMatches))
+	.catch(err => console.error(err));
+
+
+function append0(array){
+    let slider=document.querySelector("#slider");
+    array.forEach(element => {
+        if(element.seriesAdWrapper==undefined){
+            return 
+        }else{
+            console.log(element.seriesAdWrapper.matches[0])
+        let div=document.createElement("div");
+        div.setAttribute("class","score")
+        let div1=document.createElement("div");
+        let div2=document.createElement("div");
+        let team=document.createElement("p");
+        let y=element.seriesAdWrapper.matches[0]
+        let p=document.createElement("p");
+        p.innerText=y.matchInfo.status;
+        p.style.color="blue"
+        team.innerText=y.matchInfo.team1.teamSName+" ";
+        let team2=document.createElement("p");
+        team2.innerText=y.matchInfo.team2.teamSName+" ";
+        let score=document.createElement("p");
+        let x=y.matchScore
+        score.innerText=` ${x.team1Score.inngs1.runs}-${x.team1Score.inngs1.wickets}(${x.team1Score.inngs1.overs})`;
+        score1=document.createElement("p");
+        score1.innerText=` ${x.team2Score.inngs1.runs}-${x.team2Score.inngs1.wickets}(${x.team2Score.inngs1.overs})`;
+        div1.append(team,score);
+        div2.append(team2,score1);
+        div.append(div1,div2,p);
+        slider.append(div);
+    }
+    });
+}
+
+
 let append=(array)=>{
     append1(array);
     let middleview=document.querySelector("#middleview");
@@ -155,17 +236,15 @@ let append2=(array)=>{
 let append3=(array)=>{
     let schedule=document.querySelector("#schedule");
     array.forEach(element => {
-        if(element.scheduleAdWrapper==undefined){
-            console.log("yes");
+        if(element.matchScheduleMap==undefined){
             return 
         }else{
-            console.log(element.scheduleAdWrapper.date)
             let div=document.createElement("div");
             div.setAttribute("class","scheduleview")
             let p=document.createElement("p");
-            p.innerText=element.scheduleAdWrapper.date;
+            p.innerText=element.matchScheduleMap.date;
             let p1=document.createElement("p");
-            p1.innerText=element.scheduleAdWrapper.matchScheduleList[0].seriesName;
+            p1.innerText=element.matchScheduleMap.matchScheduleList[0].seriesName;
             div.append(p1,p);
             schedule.append(div);
         }  
@@ -184,4 +263,5 @@ let append4=(array)=>{
             specials.append(div);
     });
 }
+
 </script>
