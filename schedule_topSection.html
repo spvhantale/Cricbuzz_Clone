@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <style>
+        body>h1 {
+            padding-left: 36px;
+            margin-bottom: 7px;
+            font-size: 28px;
+        }
+        #headers {
+            width:95%;
+            margin: auto;
+            display: flex;
+            justify-content: flex-start;
+            gap:40px;
+            padding: 20px;
+        }
+        #headers>div {
+            background-color:#cfe0db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        #headers>div:first-child {
+            background-color:#028062;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cricket Schedule</h1>
+    <div id="headers">
+        <div id="international">International</div>
+        <div id="domestic">Domestic & Others</div>
+        <div id="t20">T20 Leagues</div>
+        <div id="women">Women</div>
+    </div>
+    <div id="container"></div>
+
+</body>
+</html>
+
+<script src="./schedule_topSection.js"></script>
