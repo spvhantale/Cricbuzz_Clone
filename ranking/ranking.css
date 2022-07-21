@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    width: 70%;
+    margin: auto;
+    border: 2px solid black;
+}
+#container button{
+    padding: 15px;
+    border-radius: 5px;
+    gap: 5px;
+}
+
+#container{
+/* display: flex; */
+justify-content: space-around;
+padding: 10%;
+padding-bottom: 20px;
+}
+#list_box{
+    width: 70%;
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: 10%;
+    padding-top: 0;
+}
+.box{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    border-bottom: 1px solid gray;
+    
+}
+#listBox_navbar{
+    width: 70%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    background-color: rgb(228, 223, 223);
+    margin-left: 10%;
+
+}
