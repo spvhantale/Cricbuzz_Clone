@@ -6,11 +6,35 @@
     <title>Document</title>
     <style>
         body{
-            width: 80%;
+            width: 70%;
+            margin: auto;
+            /* background-color: rgb(227,230,227); */
         }
         #homepagebody{
             display: grid;
             grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+        .middlepagenews,.leftpagenews,.latestphotsview,.scheduleview{
+            padding: 0px 20px;
+            border-top: 1px solid gray;
+            background-color: white; 
+            padding-top:10px ;
+        }
+        #middleview{
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #leftview{
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 0px 10px;
+        }
+        #latestnews>h3,#latestphots>h3,#schedule>h3{
+            color: rgb(2,128,98);
+        }
+        .leftpagenews{
+            border-top: 1px solid gray;
+            background-color: white;
+            
         }
     </style>
 </head>
@@ -19,19 +43,35 @@
 
     </div>
     <div id="homepagebody">
-        <div id="latestnews">
-            <h1>Latest News</h1>
+        <div id="leftview">
+            <div id="latestnews">
+                <h3>LATEST NEWS</h3>
+    
+            </div>
+            <div id="latestphots">
+                <h3>LATEST PHOTOS</h3>
+
+            </div>
+            <div id="schedule">
+                <h3>SCHEDULE</h3>
+            </div>
+        </div>
+       
+        <div id="middleview">
+
+        </div>
+        <div id="specials">
+            <h3>SPECIALS</h3>
 
         </div>
     </div>
 </body>
 </html>
 <script>
-
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Key': '7bff75051bmshce927f124e15e82p170432jsn30b390a7e73a',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
@@ -40,21 +80,108 @@ fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', options)
 	.then(response => response.json())
 	.then(response => append(response.storyList))
 	.catch(err => console.error(err));
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', options)
+	.then(response => response.json())
+	.then(response => append2(response.photoGalleryInfoList))
+	.catch(err => console.error(err));
+fetch('https://cricbuzz-cricket.p.rapidapi.com/schedule/v1/international', options)
+	.then(response => response.json())
+	.then(response => append3(response.matchScheduleMap))
+	.catch(err => console.error(err));
 
-
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/detail/5374', options)
+	.then(response => response.json())
+	.then(response => append4(response.photoGalleryDetails))
+	.catch(err => console.error(err));
 let append=(array)=>{
+    append1(array);
+    let middleview=document.querySelector("#middleview");
+    array.forEach(element => {
+        if(element.story==undefined){
+            return 
+        }else{
+            // console.log(element.story)
+            let div=document.createElement("div");
+            div.setAttribute("class","middlepagenews")
+            let p=document.createElement("p");
+            p.innerText=element.story.context;
+            p.style.color="gray";
+            p.style.textTransform="uppercase";
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/420x235/i1/c${element.story.coverImage.id}/smith-supersport-and-the-min.jpg`
+            let h2=document.createElement("h2");
+            h2.innerText=element.story.hline;
+            let p2=document.createElement("p");
+            p2.innerText=element.story.intro;
+            div.append(p,img,h2,p2);
+             middleview.append(div);
+        }  
+    });
+}
+let append1=(array)=>{
     let latestnews=document.querySelector("#latestnews");
     array.forEach(element => {
         if(element.story==undefined){
             return 
         }else{
-            console.log(element.story)
+            // console.log(element.story)
             let div=document.createElement("div");
-        let p=document.createElement("h2");
-        p.innerText=element.story.hline;
-    div.append(p);
-        latestnews.append(div);
+            div.setAttribute("class","leftpagenews")
+            let h2=document.createElement("p");
+            h2.innerText=element.story.hline;
+            div.append(h2);
+            latestnews.append(div);
         }  
+    });
+}
+let append2=(array)=>{
+    let latestphots=document.querySelector("#latestphots");
+    array.forEach(element => {
+        if(element.photoGalleryInfo==undefined){
+            return 
+        }else{
+            // console.log(element.story)
+            let div=document.createElement("div");
+            div.setAttribute("class","latestphotsview")
+            let p=document.createElement("p");
+            p.innerText=element.photoGalleryInfo.headline;
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+            div.append(img,p);
+            latestphots.append(div);
+        }  
+    });
+}
+let append3=(array)=>{
+    let schedule=document.querySelector("#schedule");
+    array.forEach(element => {
+        if(element.scheduleAdWrapper==undefined){
+            console.log("yes");
+            return 
+        }else{
+            console.log(element.scheduleAdWrapper.date)
+            let div=document.createElement("div");
+            div.setAttribute("class","scheduleview")
+            let p=document.createElement("p");
+            p.innerText=element.scheduleAdWrapper.date;
+            let p1=document.createElement("p");
+            p1.innerText=element.scheduleAdWrapper.matchScheduleList[0].seriesName;
+            div.append(p1,p);
+            schedule.append(div);
+        }  
+    });
+}
+let append4=(array)=>{
+    let specials=document.querySelector("#specials");
+    array.forEach(element => {
+            let div=document.createElement("div");
+            div.setAttribute("class","specialsview")
+            let p=document.createElement("p");
+            p.innerText=element.caption;
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+            div.append(img,p);
+            specials.append(div);
     });
 }
 </script>
