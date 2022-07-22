@@ -1,5 +1,27 @@
+    
+    //Importing functions from navbarlower.js
 
-    //Function for making a number two digit
+    import {g, navbarlower, currentMatch,currentMatchClick, currentFutureMatch,currentFutureMatchClick, matchByDay, matchByDayClick, teamFunc,teamClick, archFunc, archClick} from "./navbarlower.js";
+
+
+    //Function containing all the click functionality of navbarlower
+
+    let clickFunc = () => {
+
+        currentMatchClick();
+
+        currentFutureMatchClick();
+
+        matchByDayClick();
+
+        teamClick();
+
+        archClick();
+        
+    }
+
+
+    //Function for making a number into two digit
 
     let twoDigit = (num) => {
 
@@ -20,7 +42,7 @@
     }
 
 
-    //Function for getting GMT time
+    //Function for getting Local time
 
     let getLocalTime = (num) => {
 
@@ -187,6 +209,16 @@
 
 
 
+    //Function calling for lower navbar and its different functionalities
+
+    g('navlowerschedule').innerHTML = navbarlower();
+
+    matchByDay();
+
+    clickFunc();
+
+    
+
     //Network Request with fetch
     //Default for the schedule page - International
 
@@ -202,7 +234,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '302ee37d7amshdab8add06216f97p1651a2jsndb6b79c36b02',
+                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -219,11 +251,12 @@
     }); 
 
 
+
     //Function for appending different elements
 
     let appendFunc = (data) => {
 
-        document.getElementById('container').innerHTML = "";
+        g('container').innerHTML = "";
 
         for(let el of data) {
 
@@ -271,15 +304,25 @@
 
                 let VenueTime = getVenueTime(TimeZone, Num)
             
-                // console.log([Date, TimeZone, Num,  SeriesName, Team1, Team2, MatchType, GroundName, City, LocalTime, GMTTime, VenueTime]);
-
                 let divSeries = c('div');
+
+                divSeries.setAttribute('class', 'divSeries');
+
+                let firstBox = c('div');
+
+                firstBox.setAttribute('class', 'firstBox');
 
                 let pSeries = c('p');
 
                 pSeries.innerText = SeriesName;
 
                 pSeries.setAttribute('class', 'pSeries');
+
+                firstBox.append(pSeries);
+
+                let middleBox = c('div');
+
+                middleBox.setAttribute('class', 'middleBox');
 
                 let pMatch = c('p');
 
@@ -293,6 +336,12 @@
 
                 pVenue.setAttribute('class', 'pVenue');
 
+                middleBox.append(pMatch, pVenue);
+
+                let timeBox = c('div');
+
+                timeBox.setAttribute('class', 'timeBox');
+
                 let pLocal = c('p');
 
                 pLocal.innerText = `${LocalTime}`
@@ -305,102 +354,220 @@
 
                 pGMTVenue.setAttribute('class', 'pGMTVenue');
 
-                divSeries.append(pSeries, pMatch, pVenue, pLocal, pGMTVenue);
+                timeBox.append(pLocal, pGMTVenue)
+
+                divSeries.append(firstBox, middleBox, timeBox);
 
                 divBox.append(divSeries);
+
+                if(el.matchScheduleMap.matchScheduleList.length>1 && i!==el.matchScheduleMap.matchScheduleList.length-1) {
+
+                    let Hr = c('HR');
+
+                    Hr.setAttribute('class', 'Hr');
+
+                    divBox.append(Hr);
+
+                }       
                
             }
 
-            document.getElementById('container').append(divBox);
+            g('container').append(divBox);
 
         }
             
     }
 
 
+
     //domestic
 
-    document.getElementById('domestic').addEventListener('click', async (event)=> {
+    g('domestic').addEventListener('click', async (event)=> {
 
         event.preventDefault();
 
-        document.getElementById('domestic').style.backgroundColor = "#028062";
+        g('domestic').style.backgroundColor = "#028062";
 
-        document.getElementById('domestic').style.color = "white";
+        g('domestic').style.color = "white";
 
-        document.getElementById('international').style.backgroundColor = "#cfe0db";
+        g('international').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('international').style.color = 'black';
+        g('international').style.color = 'black';
 
-        document.getElementById('t20').style.backgroundColor = "#cfe0db";
+        g('t20').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('t20').style.color = 'black';
+        g('t20').style.color = 'black';
 
-        document.getElementById('women').style.backgroundColor = "#cfe0db";
+        g('women').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('women').style.color = 'black';
+        g('women').style.color = 'black';
+
+        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=domestic'
+
+        let response = await fetch(url, {
+
+            method: "GET",
+
+            params: {matchType: 'domestic'},
+
+            headers: {
+
+                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+
+                'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+
+            }
+
+        });
+
+        let data = (await response.json()).scheduleAdWrapper;
+
+        appendFunc(data);
+
     });
+
 
 
 
     //t20
 
-    document.getElementById('t20').addEventListener('click', async (event)=> {
+    g('t20').addEventListener('click', async (event)=> {
 
         event.preventDefault();
 
-        document.getElementById('t20').style.backgroundColor = "#028062";
+        g('t20').style.backgroundColor = "#028062";
 
-        document.getElementById('t20').style.color = "white";
+        g('t20').style.color = "white";
 
-        document.getElementById('international').style.backgroundColor = "#cfe0db";
+        g('international').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('international').style.color = 'black';
+        g('international').style.color = 'black';
 
-        document.getElementById('domestic').style.backgroundColor = "#cfe0db";
+        g('domestic').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('domestic').style.color = 'black';
+        g('domestic').style.color = 'black';
 
-        document.getElementById('women').style.backgroundColor = "#cfe0db";
+        g('women').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('women').style.color = 'black';
+        g('women').style.color = 'black';
+
+        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=league'
+
+        let response = await fetch(url, {
+
+            method: "GET",
+
+            params: {matchType: 'league'},
+
+            headers: {
+
+                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+
+                'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+
+            }
+
+        });
+
+        let data = (await response.json()).scheduleAdWrapper;
+
+        appendFunc(data);
 
         
     });
 
+    
 
     //Women
 
-    document.getElementById('women').addEventListener('click', async (event)=> {
+    g('women').addEventListener('click', async (event)=> {
 
         event.preventDefault();
 
-        document.getElementById('women').style.backgroundColor = "#028062";
+        g('women').style.backgroundColor = "#028062";
 
-        document.getElementById('women').style.color = "white";
+        g('women').style.color = "white";
 
-        document.getElementById('international').style.backgroundColor = "#cfe0db";
+        g('international').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('international').style.color = 'black';
+        g('international').style.color = 'black';
 
-        document.getElementById('t20').style.backgroundColor = "#cfe0db";
+        g('t20').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('t20').style.color = 'black';
+        g('t20').style.color = 'black';
 
-        document.getElementById('domestic').style.backgroundColor = "#cfe0db";
+        g('domestic').style.backgroundColor = "#cfe0db";
 
-        document.getElementById('domestic').style.color = 'black';
+        g('domestic').style.color = 'black';
+
+        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=women'
+
+        let response = await fetch(url, {
+
+            method: "GET",
+
+            params: {matchType: 'women'},
+
+            headers: {
+
+                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+
+                'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+
+            }
+
+        });
+
+        let data = (await response.json()).scheduleAdWrapper;
+
+        appendFunc(data);
     });
+
+
     
 
     //International
 
-    document.getElementById('international').addEventListener('click', async (event)=> {
+    g('international').addEventListener('click', async (event)=> {
 
         event.preventDefault();
 
-        window.location.reload();
+        g('international').style.backgroundColor = "#028062";
+
+        g('international').style.color = "white";
+
+        g('women').style.backgroundColor = "#cfe0db";
+
+        g('women').style.color = 'black';
+
+        g('t20').style.backgroundColor = "#cfe0db";
+
+        g('t20').style.color = 'black';
+
+        g('domestic').style.backgroundColor = "#cfe0db";
+
+        g('domestic').style.color = 'black';
+
+        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=international'
+
+        let response = await fetch(url, {
+
+            method: "GET",
+
+            params: {matchType: 'international'},
+
+            headers: {
+
+                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+
+                'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+
+            }
+
+        });
+
+        let data = (await response.json()).scheduleAdWrapper;
+
+        appendFunc(data);
 
     });
-
-

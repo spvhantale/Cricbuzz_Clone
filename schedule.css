@@ -1,0 +1,90 @@
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width:75%;
+            margin: auto;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        }
+        body>h1 {
+            padding-left: 25px;
+            margin-bottom: 5px;
+            font-size: 28px;
+            padding-top: -1px;
+        }
+        #headers {
+            width:95%;
+            margin: auto;
+            display: flex;
+            justify-content: flex-start;
+            gap:40px;
+            padding: 20px;
+        }
+        #headers>div {
+            background-color:#cfe0db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        #headers>div:first-child {
+            background-color:#028062;
+            color:white;
+        }
+        #container {
+            width: 97%;
+            margin:auto;
+        }
+        .divBox {
+            width:100%;
+            margin:auto;
+        }
+        .divDate {
+            width:99%;
+            height: 35px;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #ecebeb;
+            font-weight: bold;
+            padding-left: 15px;
+        }
+        .divSeries {
+            width:98%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap:50px;
+            padding-left: 15px;
+            margin-top:18px;
+            margin-bottom:25px;
+        }
+        .pSeries {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+        }
+        .pMatch {
+            font-size: 14px;
+        }
+        .pVenue {
+            font-size: 12px;
+            margin-top: -10px;
+            color: #666666;
+        }
+        .pLocal {
+            font-size: 14px;
+        }
+        .pGMTVenue {
+            font-size: 12px;
+            margin-top: -10px;
+            color: #666666;
+        }
+        .Hr {
+            border-top:  #ecebeb;
+            width:60%;
+            text-align:right;
+            margin-left: 350px;
+        }
+    
