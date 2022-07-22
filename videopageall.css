@@ -1,0 +1,101 @@
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        width:75%;
+        margin: auto;
+        margin-top: -20px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    }
+
+    body>h1 {
+        padding-left: 25px;
+        margin-bottom: 5px;
+        font-size: 28px;
+        padding-top: 28px;
+    }
+
+    #headvid {
+        width:97%;
+        height:170px;
+        border-bottom:1px solid #ecebeb;
+        padding-left: 25px;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:23px;
+    }
+
+    #headvid>div {
+        width:75px;
+        height:120px;
+        font-size: 13px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #headvid>div>img {
+        width:100%;
+        border-radius: 4px;
+    }
+
+    h3 {
+        padding-left: 25px;
+        margin-bottom: -65px; 
+    }
+
+    #latestvid,#indiavid,#playlistvid,#indtourengvid,#ashesvid,#bblvid {
+        width:100%;
+        height:285px;
+        border-bottom:1px solid #ecebeb;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #latestvid>div,#indiavid>div,#playlistvid>div,#indtourengvid>div,#ashesvid>div,#bblvid>div {
+        width:22%;;
+        height:120px;
+        font-size: 14px;
+        font-weight: bold;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    #latestvid>div>img, #indiavid>div>img, #playlistvid>div>img, #indtourengvid>div>img, #ashesvid>div>img, #bblvid>div>img {
+        width:100%;
+        border-radius: 4px;
+    }
+
+    #categoryvid {
+        width:100%;
+        height:170px;
+        border-bottom:1px solid #ecebeb;
+        margin: auto;
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #categoryvid>div {
+        width:75px;
+        height:120px;
+        font-size: 13px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #categoryvid>div>img {
+        width:100%;
+        border-radius: 4px;
+    }
+
+    
+
+
