@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #ebebeb;
+        }
+        #maincontainer{
+            width: 1075px;
+            height: auto;
+            margin: auto;
+            background-color: white;
+        }
+        #toplivenavbar{
+            width: 100%;
+            height: auto;
+            margin: auto;
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            padding-top: 10px;
+
+        }
+        #toplivenavbar>p{
+            cursor: pointer;
+        }
+        #toplivenavbar>p:hover{
+            text-decoration: underline;
+            color: #009270;
+            
+        }
+        #toplivenavbar+hr+h1{
+            margin-left: 30px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        #bottomlivenavbar{
+            width: 100%;
+            height: auto;
+            margin: auto;
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            padding-top: 10px;
+
+        }
+        #bottomlivenavbar>p{
+            cursor: pointer;
+        }
+        #bottomlivenavbar>p:hover{
+            text-decoration: underline;
+            color: #009270;
+            
+        }
+        #lireup{
+            width: 100%;
+            display: flex;
+            margin-top: 20px;
+            margin-left: 30px;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30px;
+        }
+        #lireup>button{
+            background-color: #cfe0db;
+            padding: 3px 20px 3px 20px;
+            border-radius: 25px;
+            border: 0px;
+        }
+        #lireup>button:hover{
+            background-color: #009270;
+            color: white;
+        }
+        #container{
+            margin-left: 30px;
+            
+        }
+        #container>h2{
+            border: 0px;
+            margin-top: 20px;
+            padding: 5px 0px 5px 10px;
+            background-color: #ebebeb;
+        }
+        #container>h2+p{
+            color: #ebebeb;
+        }
+        #container>div{
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        #container>div>div{
+            width: 25%;
+            height: auto;
+            margin-top: 20px;
+            margin-left: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            background-color: #ebebeb;
+            line-height: 20px;
+        }
+        /* #container>div>div:last-child{
+
+        } */
+    </style>
+</head>
+<body>
+    
+    <div id="maincontainer">
+    <div id="toplivenavbar">
+        <p>Current Matches</p>
+        <p>Current & Future Series</p>
+        <p>Matches By Day</p>
+        <p>Teams</p>
+        <p>Series Archivessss</p>
+    </div>
+    <hr>
+    <h1>Live Cricket Score</h1>
+    <div id="bottomlivenavbar">
+        <p id="live">Live</p>
+        <p id="recent">Recent</p>
+        <p id="upcoming">Upcoming</p>
+    </div>
+    <hr>
+    <div id="lireup"></div> 
+    <div id="container"></div>
+</div> 
+
+</body>
+<script>
+  const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '8cfec7ed71msh5171ae94d556119p1514a6jsnec75adf16030',
+		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+	}
+};
+
+fetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', options)
+	.then((res) => {
+        return res.json()
+    })
+	.then((res) => {
+        console.log(res);
+        append(res.typeMatches);
+    })
+	.catch(err => console.error(err));
+
+let append = (data) => {
+   let lireup = document.querySelector("#lireup");
+   data.forEach(ele => {
+      let button1 = document.createElement("button");
+      button1.innerText=ele.matchType;
+      lireup.append(button1);
+      button1.addEventListener("click", (e) => {
+        console.log("hello");
+        let container = document.querySelector("#container");
+        container.innerHTML=null;
+        console.log(ele.seriesMatches);
+        let seriesdata = ele.seriesMatches;
+        seriesdata.forEach(element => {
+            if(element.seriesAdWrapper==undefined){
+        console.log("Ye");
+            return;
+        }
+        else{
+                let h2 = document.createElement("h2");
+            h2.innerText=element.seriesAdWrapper.seriesName;
+            container.append(h2);
+            let matchdata = element.seriesAdWrapper.matches;
+            matchdata.forEach(elem => {
+                let div1 = document.createElement("div");
+                let h3 = document.createElement("h3");
+                h3.innerText = `${elem.matchInfo.team1.teamName} vs ${elem.matchInfo.team2.teamName}, ${elem.matchInfo.matchDesc}`
+                let p1 = document.createElement("p");
+                let sdate = new Date(elem.matchInfo.seriesStartDt);
+                let edate = new Date(elem.matchInfo.endDate);
+                let time = sdate.getTime();
+                let startDate = sdate.getDay();
+                let endDate = edate.getDay();
+                p1.innerText= `${startDate} - ${endDate} . ${time} at ${elem.matchInfo.venueInfo.city}, ${elem.matchInfo.venueInfo.ground}`;
+                let div2 = document.createElement("div");
+                let p2 = document.createElement("p");
+                let p3 = document.createElement("p");
+                if(elem.matchInfo.matchFormat==="TEST"){
+                    if(elem.matchScore.team2Score.inngs2==undefined){
+                        return ;
+                    }
+                    p2.innerText=`${elem.matchInfo.team1.teamSName}   ${elem.matchScore.team1Score.inngs1.runs} & ${elem.matchScore.team1Score.inngs2.runs}`;
+                    
+                    p3.innerText=`${elem.matchInfo.team2.teamSName}   ${elem.matchScore.team2Score.inngs1.runs} & ${elem.matchScore.team2Score.inngs2.runs}`;
+                }
+                else if(elem.matchInfo.matchFormat==="T20" || elem.matchInfo.matchFormat==="ODI"){
+                    // if(elem.matchScore.team2Score.inngs2==undefined){
+                    //     return ;
+                    // }
+                    p2.innerText=`${elem.matchInfo.team1.teamSName}   ${elem.matchScore.team1Score.inngs1.runs}`;
+                    
+                    p3.innerText=`${elem.matchInfo.team2.teamSName}   ${elem.matchScore.team2Score.inngs1.runs}`;
+                }
+                let p4 = document.createElement("p");
+                p4.innerText=elem.matchInfo.status;
+                div2.append(p2,p3,p4);
+                let div3 = document.createElement("div");
+                div3.innerHTML="<p>Live Score</p><hr><p>Scorecard</p><hr><p>Full Commentary</p><hr><p>News</p>";
+                div1.append(h3,p1,div2);
+                container.append(div1); 
+            });
+        }
+        });
+    }); 
+
+    });
+}
+
+// function myidInternational(data){
+//     let container = document.querySelector("#container");
+//    data.forEach(ele => {
+//     let h2 = document.createElement("h2");
+//     h2.innerText=ele.seriesMatches.seriesAdWrapper.matches.matchInfo.seriesName;
+//     container.append(h2);
+
+//    })
+// }
+</script>
+</html>
