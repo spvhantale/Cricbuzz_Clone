@@ -21,7 +21,7 @@ cricbuzzplus()
     const option = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8cfec7ed71msh5171ae94d556119p1514a6jsnec75adf16030',
+		'X-RapidAPI-Key': '2eabeba429msh7fcbdf39ed18ec5p15a68cjsn68ae23da56c5',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
