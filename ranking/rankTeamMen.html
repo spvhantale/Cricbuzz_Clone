@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="ranking.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>ICC Cricket Rankings - Men's Team</h1>
+      <button>Men</button>
+      <button>Women</button>
+      <div id="specific">
+        <div><a href="rankBatMen.html">Batting</a></div>
+        <div><a href="rankBowlMen.html">Bowling</a></div>
+        <div><a href="rankAllMen.html">All-Rounder</a></div>
+        <div><a href="rankTeamMen.html">Team</a></div>
+      </div>
+      <div>
+        <button id="test">TEST</button>
+        <button id="odi">ODI</button>
+        <button id="t20">T20</button>
+      </div>
+    </div>
+    <div id="listBox_navbar">
+      <h3>Position</h3>
+      <h3></h3>
+      <h3>Country</h3>
+      <h3>Rating</h3>
+    </div>
+    <div id="list_box">
+      <!-- <div id="listBox_navbar">
+        <h3>Position</h3>
+        <h3></h3>
+        <h3>Player</h3>
+        <h3>Country</h3>
+        <h3>Rating</h3>
+      </div> -->
+    </div>
+  </body>
+</html>
+<script>
+  //RANKING MEN WOMEN
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": "ff3cc66870msh53ff2e019d76247p1e2de4jsn7258e21d39cd",
+  //       "X-RapidAPI-Host": "unofficial-cricbuzz.p.rapidapi.com",
+  //     },
+  //   };
+
+  //   fetch(
+  //     "https://unofficial-cricbuzz.p.rapidapi.com/stats/get-icc-rankings?category=batsmen&formatType=test&isWomen=0",
+  //     options
+  //   )
+  //     .then((response) => response.json())
+  //     .then((response) => console.log(response))
+  //     .catch((err) => console.error(err));
+</script>
+<script src="rankTeamMen.js" type="module"></script>

@@ -1,21 +1,58 @@
-// const API_Key = "efbead02-64b5-47d5-af49-22db11a86890";
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'f499dcdbc4msh3f8b3dc7b86e45ap11f1b6jsnfb2df5d5574b',
+// 		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+// 	}
+// };
 
+// fetch('https://unofficial-cricbuzz.p.rapidapi.com/players/get-info?playerId=7755', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
 
-// import navbar from "../component/navbar.js";
-import { append, getData } from "../fetch.js";
+// const options = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": "f499dcdbc4msh3f8b3dc7b86e45ap11f1b6jsnfb2df5d5574b",
+//     "X-RapidAPI-Host": "unofficial-cricbuzz.p.rapidapi.com",
+//   },
+// };
 
-// console.log(navbar());
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "f499dcdbc4msh3f8b3dc7b86e45ap11f1b6jsnfb2df5d5574b",
+    "X-RapidAPI-Host": "unofficial-cricbuzz.p.rapidapi.com",
+  },
+};
 
-document.getElementById("navbar").innerHTML = navbar();
-// let query = document.querySelector("#query").value;
+fetch(
+  "https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=international",
+  options
+)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response);
+    append(response.scheduleAdWrapper);
+    console.log(response);
+  })
+  .catch((err) => console.error(err));
 
-const url = `https://api.cricapi.com/v1/players_info?apikey=efbead02-64b5-47d5-af49-22db11a86890&offset=0&id=16592242-ef26-45d9-bf23-fc090e90fbbe`;
-
-let container = document.getElementById("container");
-
-getData(url).then((res) => {
-    console.log(res);
-    append(res, container);
-})
-
-// enter(getData());
+let append = (array) => {
+  let schedule = document.querySelector("#player_box");
+  array.forEach((element) => {
+    if (element.matchScheduleMap == undefined) {
+      return;
+    } else {
+      let div = document.createElement("div");
+      div.setAttribute("class", "scheduleview");
+      let p = document.createElement("p");
+      p.innerText = element.matchScheduleMap.date;
+      let p1 = document.createElement("p");
+      p1.innerText = element.matchScheduleMap.matchScheduleList[0].seriesName;
+      div.append(p1, p);
+      schedule.append(div);
+    }
+  });
+};
