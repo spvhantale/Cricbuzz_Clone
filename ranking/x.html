@@ -1,52 +1,46 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="homepageslider">
-
-    </div>
+  </head>
+  <body>
+    <div id="homepageslider"></div>
     <div id="homepagebody">
-        <div id="latestnews">
-            <h1>Latest News</h1>
-
-        </div>
+      <div id="latestnews">
+        <h1>Latest News</h1>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 <script>
-    
+  // const options = {
+  // 	method: 'GET',
+  // 	headers: {
+  // 		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+  // 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+  // 	}
+  // };
 
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
-		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
-	}
-};
+  // fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', options)
+  // 	.then(response => response.json())
+  // 	.then(response => append(response.storyList))
+  // 	.catch(err => console.error(err));
 
-fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', options)
-	.then(response => response.json())
-	.then(response => append(response.storyList))
-	.catch(err => console.error(err));
-
-
-// let append=(array)=>{
-//     let latestnews=document.querySelector("#latestnews");
-//     array.forEach(element => {
-//         if(element.story==undefined){
-//             return 
-//         }else{
-//             console.log(element.story)
-//             let div=document.createElement("div");
-//         let p=document.createElement("p");
-//         p.innerText=element.story.hline;
-//     div.append(p);
-//         latestnews.append(div);
-//         }  
-//     });
-// }
+  // let append=(array)=>{
+  //     let latestnews=document.querySelector("#latestnews");
+  //     array.forEach(element => {
+  //         if(element.story==undefined){
+  //             return
+  //         }else{
+  //             console.log(element.story)
+  //             let div=document.createElement("div");
+  //         let p=document.createElement("p");
+  //         p.innerText=element.story.hline;
+  //     div.append(p);
+  //         latestnews.append(div);
+  //         }
+  //     });
+  // }
 </script>

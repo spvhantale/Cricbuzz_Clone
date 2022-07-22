@@ -11,9 +11,10 @@ body {
   border: 2px solid black;
 }
 #container button {
-  padding: 15px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
   gap: 5px;
+  background-color: rgb(228, 223, 223);
 }
 
 #container {
@@ -50,8 +51,11 @@ body {
   padding-left: 0;
 }
 #specific > div {
-  border: 1px dotted gray;
+  border: 1px dotted black;
   padding: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: rgb(228, 223, 223);
 }
 a {
   font-style: normal;
