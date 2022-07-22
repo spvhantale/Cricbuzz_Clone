@@ -16,29 +16,30 @@ let clickFunc = () => {
 
 document.querySelector("#newsnavbar").innerHTML=navbarlowers();
 clickFunc();
-newslower();
-    const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
-		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
-	}
-};
-    fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
-	.then(response => response.json())
-	.then(response => append(response.newsList))
-	.catch(err => console.error(err));
-    const option = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '8cfec7ed71msh5171ae94d556119p1514a6jsnec75adf16030',
-		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
-	}
-};
-    fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', option)
-	.then(response => response.json())
-	.then(response => append2(response.photoGalleryInfoList))
-	.catch(err => console.error(err));
+allstories();
+//     const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+// 		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+// 	}
+// };
+//     fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
+// 	.then(response => response.json())
+// 	.then(response => localStorage.setItem("news",JSON.stringify(response.newsList)))
+// 	.catch(err => console.error(err));
+//     const option = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '8cfec7ed71msh5171ae94d556119p1514a6jsnec75adf16030',
+// 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+// 	}
+// };
+    // fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', option)
+	// .then(response => response.json())
+	// .then(response => localStorage.setItem("data",JSON.stringify(response.photoGalleryInfoList)))
+	// .catch(err => console.error(err));
+    let news=JSON.parse(localStorage.getItem("news"))
     let append=(array)=>{
     let allstories=document.querySelector("#allstories");
     array.forEach(element => {
@@ -75,7 +76,8 @@ newslower();
         }  
     });
 }
-
+append(news);
+let array=JSON.parse(localStorage.getItem("data"));
 let append2=(array)=>{
     
     let latestphots=document.querySelector("#latestphots");
@@ -97,3 +99,4 @@ let append2=(array)=>{
         }  
     });
 }
+append2(array);

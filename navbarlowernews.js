@@ -40,7 +40,7 @@ let allstoriesClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="./allstories.html"
 
     })}`
 }
@@ -71,7 +71,7 @@ let cricbuzzplusClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="./cricbuzzplus.html"
 
     })}`
 }
@@ -101,7 +101,7 @@ let newslowerClick = () => {
 
         event.preventDefault();
 
-        window.location.href ="./schedule.html"
+        window.location.href ="./news.html"
 
     })}`
 }
@@ -130,7 +130,7 @@ let topicslowerClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="./topic.html"
 
     })}`
 }
@@ -160,7 +160,7 @@ let spotlightlowerClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="./spotlight.html";
 
     })}`
 }
