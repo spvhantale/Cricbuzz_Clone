@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>news</title>
+    <!-- <link rel="stylesheet" href="./navbarlowernews.css"> -->
     <style>
         body{
             width: 70%;
@@ -14,7 +15,7 @@
         #allstories{
             width: 100%;
             padding: 20px;
-            /* border: 1px solid yellow; */
+            border-right: 1px solid #D3D3D3;
         }
         .newsallstories{
             display: flex;
@@ -43,26 +44,40 @@
         .latestphotsview>p{
             padding-left: 10px;
         }
+        #latestphots>h3{
+            color:rgb(2,128,98); 
+        }
+        #navbarlowers {
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    gap:45px;
+    padding-left: 25px;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+#navbarlowers>div {
+    padding-bottom: 10px;
+    border-bottom: 4px solid white;
+    line-height: 7px;
+}
+
+#hor{
+    border-top: #ecebeb;
+    margin-top: 0px;
+}
+
     </style>
 </head>
 <body>
     <div id="newsnavbar">
-        <a href="">All Stories</a>
-        <a href="">Cricbuzz Plus</a>
-        <a href="">News</a>
-        <a href="">Topics</a>
-        <a href="">Spotlight</a>
-        <a href="">Opinions</a>
-        <a href="">special</a>
-        <a href="">Stats </a>
-        <a href="">Inverviews</a>
-        <a href="">Live Blogs</a>
+
     </div>
     <div id="newsbody">
-        
         <div id="allstories">
             <h1>Cricket News and Editorials</h1>
-    
+            
         </div>
         <div id="latestphots">
             <h3>LATEST PHOTO</h3>
@@ -72,77 +87,4 @@
     
 </body>
 </html>
-<script>
-//     const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
-// 		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
-// 	}
-// };
-//     fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
-// 	.then(response => response.json())
-// 	.then(response => localStorage.setItem("news",JSON.stringify(response.newsList)))
-// 	.catch(err => console.error(err));
-//     const option = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '8cfec7ed71msh5171ae94d556119p1514a6jsnec75adf16030',
-// 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
-// 	}
-// };
-    // fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', option)
-	// .then(response => response.json())
-	// .then(response => localStorage.setItem("data",JSON.stringify(response.photoGalleryInfoList)))
-	// .catch(err => console.error(err));
-    let news=JSON.parse(localStorage.getItem("news"))
-    let append=(array)=>{
-    let allstories=document.querySelector("#allstories");
-    array.forEach(element => {
-        if(element.story==undefined){
-            return 
-        }else{
-            // console.log(element.story)
-            let div=document.createElement("div");
-            let div1=document.createElement("div");
-            console.log(element);
-            div.setAttribute("class","newsallstories")
-            let p=document.createElement("p");
-            p.innerText=`${element.story.storyType}.${element.story.context}`;
-            p.style.color="gray";
-            p.style.textTransform="uppercase";
-            let img=document.createElement("img");
-            img.src=`https://www.cricbuzz.com/a/img/v1/205x152/i1/c${element.story.coverImage.id}/dunkley-cracked-a-quick-fire-f.jpg`
-            let h2=document.createElement("h3");
-            h2.innerText=element.story.hline;
-            let p2=document.createElement("p");
-            p2.innerText=element.story.intro;
-            div1.append(p,h2,p2);
-            div.append(img,div1);
-            allstories.append(div);
-        }  
-    });
-}
-append(news);
-let array=JSON.parse(localStorage.getItem("data"));
-let append2=(array)=>{
-    
-    let latestphots=document.querySelector("#latestphots");
-    array.forEach(element => {
-        if(element.photoGalleryInfo==undefined){
-            return 
-        }else{
-            // console.log(element.story)
-            let div=document.createElement("div");
-            div.setAttribute("class","latestphotsview")
-            let p=document.createElement("p");
-            p.innerText=element.photoGalleryInfo.headline;
-            let img=document.createElement("img");
-            img.src=`https://www.cricbuzz.com/a/img/v1/100x77/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
-            div.append(img,p);
-            latestphots.append(div);
-        }  
-    });
-}
-append2(array);
-</script>
+<script src="./news.js" type="module"></script>

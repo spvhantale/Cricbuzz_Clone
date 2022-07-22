@@ -1,0 +1,20 @@
+#navbarlowers {
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    gap:45px;
+    padding-left: 25px;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+#navbarlowers>div {
+    padding-bottom: 10px;
+    border-bottom: 4px solid white;
+    line-height: 7px;
+}
+
+#hor{
+    border-top: #ecebeb;
+    margin-top: 0px;
+}
