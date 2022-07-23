@@ -1,5 +1,5 @@
-import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "./navbarlowernews.js"
-import {navbar,footer} from "./navbar/mainnavbar.js"
+import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "../news/navbarlowernews.js"
+import {navbar,footer} from "../navbar/mainnavbar.js"
 document.querySelector("#navbar").innerHTML=navbar();
 document.querySelector("#footer").innerHTML=footer();
 let clickFunc = () => {

@@ -11,12 +11,15 @@
 }
 #account{
   width: 30px;
-  height: 30px;
-  margin-top: 11px;
+  margin-top: 15.5px;
+  margin-right: 5px;
 }
 #logcon{
   width: 90px;
-  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  margin-top: 17px;
 }
 
 * {
@@ -26,6 +29,7 @@
 body {
   margin: auto;
   width: 70%;
+ 
 }
 
 .navbar {
@@ -52,6 +56,7 @@ body {
 }
 
 .dropdown .dropbtn {
+  height:48px;
   font-size: 16px;  
   border: none;
   outline: none;
@@ -59,10 +64,11 @@ body {
   background-color: inherit;
   font: inherit;
   margin: 0;
+  padding: 0px 6.2px;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: black ;
+  background-color: #117961  ;
 }
 
 .dropdown-content {
@@ -131,7 +137,9 @@ a{
 -webkit-transform: scaleX(-1);
 transform: scaleX(-1);
 width: 20px;
-height: 20px;
+/* height: 20px; */
+margin-top: 3.5px;
+
 }
 
 #cricketbuzz>#cricol{

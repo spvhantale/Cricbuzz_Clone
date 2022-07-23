@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="#">
+<link rel="stylesheet" href="signup.css">
+
+<body>
+    <div id="navibar_set"></div>
+    <div id="main_div">
+        <h3>Create Account</h3>
+
+        <p><span style="color: red ;">*</span>Required</p>
+
+        <h5 id="emai_edit">Email</h5>
+
+        <div id="edit_email">
+            <p id="recieve_email"></p>
+            <h6 style="cursor: pointer;">Edit</h6>
+        </div>
+        <form id="user_formm">
+
+            <h5>First name <span style="color: red ;">*</span></h5>
+            <input type="text" id="Name">
+            <h5>Last name <span style="color: red ;">*</span></h5>
+            <input type="text" id="Surname">
+            <h5>Create password <span style="color: red ;">*</span></h5>
+            <div id="password_div">
+                <input type="password" id="Password">
+                <h5 style="cursor: pointer; margin-top: 15px;" onclick="myFunction()">Show</h5>
+            </div>
+
+        </form>
+        <div id="check">
+            <input type="checkbox" id="chkbox">
+            <p>Keep me signed in. <span
+                    style="cursor: pointer;color: rgb(12,152,187);text-decoration: underline ;">Details</span></p>
+        </div>
+        <p>By tapping Next, you agree to our <span
+                style=" cursor: pointer; color:rgb(12,152,187);text-decoration: underline;">Privacy Policy</span> and
+            <span style="color:rgb(12,152,187); cursor: pointer;text-decoration: underline"> Terms & Conditions.</span>
+        </p>
+        <button onclick="validation(event) ">Create Account</button>
+    </div>
+
+    <div class="footerDiv"></div>
+</body>
+
+</html>
+
+<script src="signup.js"></script>
+
+<script type="module">
+
+
+
+</script>

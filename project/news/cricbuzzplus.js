@@ -1,5 +1,5 @@
-import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "./navbarlowernews.js"
-import {navbar,footer} from "./navbar/mainnavbar.js"
+import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "../news/navbarlowernews.js"
+import {navbar,footer} from "../navbar/mainnavbar.js"
 document.querySelector("#navbar").innerHTML=navbar();
 document.querySelector("#footer").innerHTML=footer();
 let clickFunc = () => {
@@ -18,18 +18,8 @@ let clickFunc = () => {
 
 document.querySelector("#newsnavbar").innerHTML=navbarlowers();
 clickFunc();
-newslower();
-    const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
-		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
-	}
-};
-    fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
-	.then(response => response.json())
-	.then(response => append(response.newsList))
-	.catch(err => console.error(err));
+cricbuzzplus()
+
     const option = {
 	method: 'GET',
 	headers: {
@@ -41,6 +31,18 @@ newslower();
 	.then(response => response.json())
 	.then(response => append2(response.photoGalleryInfoList))
 	.catch(err => console.error(err));
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+            'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/topics/349', options)
+        .then(response => response.json())
+        .then(response => append(response.storyList))
+        .catch(err => console.error(err));
     let append=(array)=>{
     let allstories=document.querySelector("#allstories");
     array.forEach(element => {
@@ -50,8 +52,9 @@ newslower();
             // console.log(element.story)
             let div=document.createElement("div");
             div.addEventListener("click",function(){
+                // console.log("Swapnil")
                 localStorage.setItem("newspage",JSON.stringify(element));
-                window.location.href="newspage.html";
+                window.location.href="../news/newspage.html";
             })
             let div1=document.createElement("div");
             console.log(element);
@@ -76,7 +79,6 @@ newslower();
         }  
     });
 }
-
 let append2=(array)=>{
     
     let latestphots=document.querySelector("#latestphots");
@@ -98,3 +100,4 @@ let append2=(array)=>{
         }  
     });
 }
+
