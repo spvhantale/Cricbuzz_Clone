@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="ranking.css" />
+    <link rel="stylesheet" href="../navbar/mainnavbar.css" />
   </head>
   <body>
+    <div id="navbar"></div>
     <div id="container">
       <h1>ICC Cricket Rankings - Men's All-Rounder</h1>
-      <button>Men</button>
-      <button>Women</button>
+      <button id="men">Men</button>
+      <button id="women">Women</button>
       <div id="specific">
-        <div><a href="rankBatMen.html">Batting</a></div>
-        <div><a href="rankBowlMen.html">Bowling</a></div>
-        <div><a href="rankAllMen.html">All-Rounder</a></div>
-        <div><a href="rankTeamMen.html">Team</a></div>
+        <div id="batting"><a href="rankBatMen.html">Batting</a></div>
+        <div id="bowling"><a href="rankBowlMen.html">Bowling</a></div>
+        <div id="allrounder"><a href="rankAllMen.html">All-Rounder</a></div>
+        <div id="team"><a href="rankTeamMen.html">Team</a></div>
       </div>
       <div>
         <button id="test">TEST</button>
@@ -30,7 +32,15 @@
       <h3>Country</h3>
       <h3>Rating</h3>
     </div>
-    <div id="list_box"></div>
+    <div id="part">
+      <div id="list_box"></div>
+      <div id="latestphotos">
+        <h1 id="latest">Latest Images</h1>
+      </div>
+    </div>
+    <div id="footer">
+      <img src="footer.png" alt="" />
+    </div>
   </body>
 </html>
 <script></script>

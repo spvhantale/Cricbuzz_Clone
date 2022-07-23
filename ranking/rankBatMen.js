@@ -1,4 +1,23 @@
-// import navbar from "../component/navbar.js";
+import navbar from "../navbar/mainnavbar.js";
+console.log(navbar);
+document.getElementById("navbar").innerHTML = navbar();
+import {
+  g,
+  navbarlower,
+  currentMatch,
+  currentMatchClick,
+  currentFutureMatch,
+  currentFutureMatchClick,
+  matchByDay,
+  matchByDayClick,
+  teamFunc,
+  teamClick,
+  archFunc,
+  archClick,
+} from "../navbarlower.js";
+console.log(navbarlower);
+document.getElementById("navbarlower").innerHTML = navbarlower();
+
 // import { append, getarray } from "../fetch.js";
 
 // console.log(navbar());
@@ -13,14 +32,22 @@ const options = {
   },
 };
 
-let g = (id) => {
-  return document.getElementById(id);
-};
-
 let query = "test";
 document.querySelector("#test").addEventListener("click", test);
 document.querySelector("#odi").addEventListener("click", odi);
 document.querySelector("#t20").addEventListener("click", t20);
+document.querySelector("#men").style.backgroundColor = "#009270";
+document.querySelector("#men").style.color = "white";
+document.querySelector("#men").style.fontWeight = "bold";
+document.querySelector("#batting").style.fontWeight = "bold";
+document.querySelector("#batting").style.backgroundColor = "#009270";
+document.querySelector("#test").style.color = "white";
+document.querySelector("#test").style.fontWeight = "bold";
+document.querySelector("#test").style.backgroundColor = "#009270";
+document.querySelector("#odi").style.color = "black";
+document.querySelector("#odi").style.backgroundColor = "white";
+document.querySelector("#t20").style.color = "black";
+document.querySelector("#t20").style.backgroundColor = "white";
 function test() {
   query = "test";
   fetch(
@@ -34,19 +61,13 @@ function test() {
     })
     .catch((err) => console.error(err));
 
-  g("batting").style.borderBottom = "4px solid #028062";
-
-  g("bating").style.color = "#028062";
-
-  g("bating").style.fontWeight = "bold";
-
-  g("fut").style.borderBottom = "4px solid white";
-
-  g("day").style.borderBottom = "4px solid white";
-
-  g("team").style.borderBottom = "4px solid white";
-
-  g("arch").style.borderBottom = "4px solid white";
+  document.querySelector("#test").style.color = "white";
+  document.querySelector("#test").style.fontWeight = "bold";
+  document.querySelector("#test").style.backgroundColor = "#009270";
+  document.querySelector("#odi").style.color = "black";
+  document.querySelector("#odi").style.backgroundColor = "white";
+  document.querySelector("#t20").style.color = "black";
+  document.querySelector("#t20").style.backgroundColor = "white";
 }
 function odi() {
   query = "odi";
@@ -61,6 +82,14 @@ function odi() {
       append(response.rank);
     })
     .catch((err) => console.error(err));
+
+  document.querySelector("#odi").style.color = "white";
+  document.querySelector("#odi").style.fontWeight = "bold";
+  document.querySelector("#odi").style.backgroundColor = "#009270";
+  document.querySelector("#test").style.color = "black";
+  document.querySelector("#test").style.backgroundColor = "white";
+  document.querySelector("#t20").style.color = "black";
+  document.querySelector("#t20").style.backgroundColor = "white";
 }
 function t20() {
   query = "t20";
@@ -74,6 +103,14 @@ function t20() {
       append(response.rank);
     })
     .catch((err) => console.error(err));
+
+  document.querySelector("#t20").style.color = "white";
+  document.querySelector("#t20").style.fontWeight = "bold";
+  document.querySelector("#t20").style.backgroundColor = "#009270";
+  document.querySelector("#odi").style.color = "black";
+  document.querySelector("#odi").style.backgroundColor = "white";
+  document.querySelector("#test").style.color = "black";
+  document.querySelector("#test").style.backgroundColor = "white";
 }
 
 fetch(
@@ -113,34 +150,37 @@ let append = (array) => {
   });
 };
 
-// const option = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db",
-//     "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
-//   },
-// };
+// side latest photos view:-
 
-// fetch("https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index", option)
-//   .then((response) => response.json())
-//   .then((response) => append2(response.photoGalleryInfoList))
-//   .catch((err) => console.error(err));
+const option = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "f499dcdbc4msh3f8b3dc7b86e45ap11f1b6jsnfb2df5d5574b",
+    "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
+  },
+};
 
-// let append2 = (array) => {
-//   let latestphotos = document.querySelector("#latestphotos");
-//   array.forEach((element) => {
-//     if (element.photoGalleryInfo == undefined) {
-//       return;
-//     } else {
-//       console.log(element.story);
-//       let div = document.createElement("div");
-//       div.setAttribute("class", "latestphotsview");
-//       let p = document.createElement("p");
-//       p.innerText = element.photoGalleryInfo.headline;
-//       let img = document.createElement("img");
-//       img.src = `https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
-//       div.append(img, p);
-//       latestphotos.append(div);
-//     }
-//   });
-// };
+fetch("https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index", option)
+  .then((response) => response.json())
+  .then((response) => append2(response.photoGalleryInfoList))
+  .catch((err) => console.error(err));
+
+let append2 = (array) => {
+  let latestphotos = document.querySelector("#latestphotos");
+  array.forEach((element) => {
+    if (element.photoGalleryInfo == undefined) {
+      return;
+    } else {
+      console.log(element.story);
+      let div = document.createElement("div");
+      div.setAttribute("class", "latestphotosview");
+      let p = document.createElement("p");
+      p.innerText = element.photoGalleryInfo.headline;
+      let img = document.createElement("img");
+      img.src = `https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+      div.append(img, p);
+
+      latestphotos.append(div);
+    }
+  });
+};

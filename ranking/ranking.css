@@ -11,7 +11,7 @@ body {
   border: 2px solid black;
 }
 #container button {
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 20px;
   gap: 5px;
   background-color: rgb(228, 223, 223);
@@ -20,14 +20,14 @@ body {
 #container {
   /* display: flex; */
   justify-content: space-around;
-  padding: 10%;
+  padding: 2% 2%;
   padding-bottom: 20px;
 }
 #list_box {
   width: 70%;
   margin-top: 20px;
   padding: 10px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   padding-top: 0;
 }
 .box {
@@ -42,7 +42,7 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   background-color: rgb(228, 223, 223);
-  margin-left: 10%;
+  /* margin-left: 10%; */
 }
 #specific {
   display: flex;
@@ -51,15 +51,38 @@ body {
   padding-left: 0;
 }
 #specific > div {
-  border: 1px dotted black;
+  border: 1px dotted;
   padding: 10px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 20px;
-  background-color: rgb(228, 223, 223);
+  /* background-color: rgb(228, 223, 223); */
 }
 a {
-  font-style: normal;
-  color: black;
+  /* font-style: normal; */
+  /* color: black; */
   padding: 10px;
-  text-decoration: none;
+  /* text-decoration: none; */
+}
+#footer > img {
+  width: 100%;
+  padding-top: 20%;
+  height: 500px;
+}
+#part {
+  display: flex;
+}
+.latestphotosview {
+  width: 300px;
+  border: 1px dotted;
+  margin-left: 10px;
+  padding: 10px;
+}
+.latestphotosview > img {
+  display: block;
+  margin: auto;
+}
+#latest {
+  text-align: center;
+  padding: 10px;
+  color: #009270;
 }
