@@ -29,25 +29,49 @@
 
     clickFunc();
 
-    //Storing all video data in different arrays, which are imported from videodata.js 
+    //Method for shuffling an array
+
+    Array.prototype.shuffle = function(){
+
+        let currentIndex = this.length,  randomIndex;
+
+        // While there remain elements to shuffle.
+
+        while (currentIndex != 0) {
+
+        // Pick a remaining element.
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+
+        [this[currentIndex], this[randomIndex]] = [
+        this[randomIndex], this[currentIndex]];
+
+        }
+
+        return this;
+
+    }
+
+    //Storing all video data in different arrays, which are imported from videopagealldata.js 
     
     const headVideoArr = headFunc();
 
-    const latestVideoArr = latestVideoFunc();
+    const latestVideoArr = latestVideoFunc().shuffle();
 
-    const indiaVideoArr = indiaFunc();
+    const indiaVideoArr = indiaFunc().shuffle();
 
-    const playlistVideoArr = playlistFunc();
+    const playlistVideoArr = playlistFunc().shuffle();
 
-    const indTourEngVideoArr = indTourEngFunc();
+    const indTourEngVideoArr = indTourEngFunc().shuffle();
 
-    const ashesMatchVideoArr = ashesMatchFunc();
+    const ashesMatchVideoArr = ashesMatchFunc().shuffle();
 
-    const categoryVideoArr = categoryFunc();
+    const categoryVideoArr = categoryFunc().shuffle();
 
-    const bblMatchVideoArr = bblMatchFunc();
-    console.log('bblMatchVideoArr:', bblMatchVideoArr)
-
+    const bblMatchVideoArr = bblMatchFunc().shuffle();
 
     //Function for creating Html elements
 
@@ -250,5 +274,20 @@
     }
 
     categoryVideo();
+
+
+    //Function for redirecting to user Sbscription Page
+    
+    document.querySelectorAll('.box').forEach((el) => {
+
+        el.addEventListener('click', (event) => {
+
+            event.preventDefault();
+    
+            window.location.href = "https://www.cricbuzz.com/premium-subscription/user/select-plan/cricbuzz-video";
+    
+        })
+    })
+    
 
 
