@@ -45,7 +45,6 @@
         }
         .middlepagenews,.leftpagenews,.latestphotsview,.scheduleview,.specialsview{
             padding: 0px 20px;
-            border-top: 1px solid gray;
             background-color: white; 
             padding-top:10px ;
         }
@@ -53,17 +52,20 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
         #leftview,#rightview{
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            
             padding: 0px 10px;
         }
-        #latestnews>h3,#latestphots>h3,#schedule>h3{
+        #latestnews>h3,#latestphots>h3,#schedule>h3,#specials>h3{
             color: rgb(2,128,98);
         }
         .leftpagenews{
-            border-top: 1px solid gray;
             background-color: white;
         }
-      
+      #latestnews,#latestphots,#schedule,#specials{
+        padding: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin-bottom: 10px;
+      }
     </style>
 </head>
 <body>
@@ -106,7 +108,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Key': '983b0a1eebmsha785b3b943772e3p19c012jsn7ab521da8d6d',
 		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 	}
 };
@@ -121,7 +123,7 @@ fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
     const option = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Key': '4b230d8a55msh84e4689e5c34ee7p1dbc4cjsn504672165e7f',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
@@ -150,6 +152,9 @@ function append0(array){
         }else{
             console.log(element.seriesAdWrapper.matches[0])
         let div=document.createElement("div");
+        div.addEventListener("click",function(){
+            window.location.href="./livescore.html"
+        })
         div.setAttribute("class","score")
         let div1=document.createElement("div");
         let div2=document.createElement("div");
@@ -166,6 +171,7 @@ function append0(array){
         score.innerText=` ${x.team1Score.inngs1.runs}-${x.team1Score.inngs1.wickets}(${x.team1Score.inngs1.overs})`;
         score1=document.createElement("p");
         score1.innerText=` ${x.team2Score.inngs1.runs}-${x.team2Score.inngs1.wickets}(${x.team2Score.inngs1.overs})`;
+        
         div1.append(team,score);
         div2.append(team2,score1);
         div.append(div1,div2,p);
@@ -184,6 +190,11 @@ let append=(array)=>{
         }else{
             // console.log(element.story)
             let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                console.log("Swapnil")
+                localStorage.setItem("newspage",JSON.stringify(element));
+                window.location.href="newspage.html";
+            })
             div.setAttribute("class","middlepagenews")
             let p=document.createElement("p");
             p.innerText=element.story.context;
@@ -195,8 +206,9 @@ let append=(array)=>{
             h2.innerText=element.story.hline;
             let p2=document.createElement("p");
             p2.innerText=element.story.intro;
+            let hr=document.createElement("hr");
             div.append(p,img,h2,p2);
-             middleview.append(div);
+             middleview.append(div,hr);
         }  
     });
 }
@@ -208,11 +220,17 @@ let append1=(array)=>{
         }else{
             // console.log(element.story)
             let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                console.log("Swapnil")
+                localStorage.setItem("newspage",JSON.stringify(element));
+                window.location.href="newspage.html";
+            })
             div.setAttribute("class","leftpagenews")
             let h2=document.createElement("p");
             h2.innerText=element.story.hline;
+            let hr=document.createElement("hr");
             div.append(h2);
-            latestnews.append(div);
+            latestnews.append(div,hr);
         }  
     });
 }
@@ -230,7 +248,8 @@ let append2=(array)=>{
             let img=document.createElement("img");
             img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
             div.append(img,p);
-            latestphots.append(div);
+            let hr=document.createElement("hr");
+            latestphots.append(div,hr);
         }  
     });
 }
@@ -241,13 +260,17 @@ let append3=(array)=>{
             return 
         }else{
             let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                window.location.href="./schedule.html";
+            })
             div.setAttribute("class","scheduleview")
             let p=document.createElement("p");
             p.innerText=element.matchScheduleMap.date;
             let p1=document.createElement("p");
             p1.innerText=element.matchScheduleMap.matchScheduleList[0].seriesName;
             div.append(p1,p);
-            schedule.append(div);
+            let hr=document.createElement("hr");
+            schedule.append(div,hr);
         }  
     });
 }
@@ -261,7 +284,8 @@ let append4=(array)=>{
             let img=document.createElement("img");
             img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
             div.append(img,p);
-            specials.append(div);
+            let hr=document.createElement("hr");
+            specials.append(div,hr);
     });
 }
 

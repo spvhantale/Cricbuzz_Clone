@@ -48,7 +48,6 @@ newslower();
             // console.log(element.story)
             let div=document.createElement("div");
             div.addEventListener("click",function(){
-                console.log("Swapnil")
                 localStorage.setItem("newspage",JSON.stringify(element));
                 window.location.href="newspage.html";
             })
