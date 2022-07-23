@@ -54,7 +54,7 @@ function  validation(e){
 }else{
     submitDetails(event);
     alert("Successfully signup")
-    window.location.href="mainnavbar.html"
+    window.location.href="./navbar/home.html"
 }
 
 }

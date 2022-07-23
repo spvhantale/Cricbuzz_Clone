@@ -161,10 +161,10 @@ function navbar(){
 
 
     <div id="sin">
-      <h3><a href="login.html"><img id="search_icon" src="https://img.icons8.com/small/16/FFFFFF/search--v1.png" ></a></h3>
+      <h3><a href="./navbar/login.html"><img id="search_icon" src="https://img.icons8.com/small/16/FFFFFF/search--v1.png" ></a></h3>
     </div> 
      <div>
-      <a href="login.html"><img id="account" src="https://img.icons8.com/small/16/FFFFFF/user-male-circle.png" /></a>
+      <a href="./navbar/login.html"><img id="account" src="https://img.icons8.com/small/16/FFFFFF/user-male-circle.png" /></a>
     </div>
   </div> 
 </div>`
