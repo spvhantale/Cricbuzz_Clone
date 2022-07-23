@@ -232,7 +232,7 @@
 
     window.addEventListener('load', async (event) => {
 
-        //const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules'
+        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules'
 
         let response = await fetch(url, {
 
