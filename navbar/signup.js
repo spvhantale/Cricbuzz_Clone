@@ -5,7 +5,7 @@ let EMail = document.getElementById('recieve_email').value;
 let email =JSON.parse(localStorage.getItem('userEmail'));
 
 
-recieve_email.innerText = email[0].email ;
+recieve_email.innerText = email.email ;
 
 
 // console.log(email[0].email);

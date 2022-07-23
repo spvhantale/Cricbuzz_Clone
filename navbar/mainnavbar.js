@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/d40534ccd9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="be.css">
-    <title>navbar</title>
-  </head>
-  <div id="search">
+function navbar(){
+    return`  <div id="search">
     <img id="logcon"  src="https://www.cricbuzz.com/images/cb_logo.svg" />
     
 
@@ -53,7 +44,7 @@
       </div>
   
       <div class="dropdown">
-       <a> <button class="dropbtn" >SERIE
+       <a> <button class="dropbtn" >SERIES
           <i class="fa fa-caret-down"></i>
         </button></a>
         <div class="dropdown-content">
@@ -176,8 +167,6 @@
       <a href="login.html"><img id="account" src="https://img.icons8.com/small/16/FFFFFF/user-male-circle.png" /></a>
     </div>
   </div> 
-</div>
-</body>
-</html>
-
-<img src="https://img.icons8.com/small/16/FFFFFF/search--v1.png"/>
+</div>`
+}
+export default navbar;

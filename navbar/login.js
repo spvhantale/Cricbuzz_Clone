@@ -2,34 +2,34 @@ let arr = [];
 
 function User_email(email) {
 
-  this.email = email;
+     this.email= email;
+    
+  }
 
-}
-
-function submitProduct(e) {
-  e.preventDefault();
+  let form = document.getElementById("user-form");
+function submitProduct() {
   let form = document.getElementById("user-form");
   let email = form.email.value;
   console.log(email)
 
   let p = new User_email(email);
-  arr.push(p);
+  arr=p;
   localStorage.setItem('userEmail', JSON.stringify(arr));
-  console.log(arr);
-  window.location.href = 'signup.html'
-
+window.location.href="signup.html";
 }
 
-
-function validation(e) {
-
-  if (document.getElementById("email").value == '') {
+let s=JSON.parse(localStorage.getItem('userEmail'));
+console.log(s);
+function validation() {
+  if (document.getElementById("email").value == "") {
     alert("Email Required")
   } 
- else if(localStorage.getItem('UserEmail') === value('email')){
-  window.location.href='mainnavbar.html';
+
+ else if(document.getElementById("email").value==s.email){
+  console.log("Yes");
+  window.location.href='./home.html';
   }
   else {
-    submitProduct(event);
+    submitProduct();
   }
 }
