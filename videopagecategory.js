@@ -1,4 +1,8 @@
 
+//Importing upper navbar
+
+import navbar from "./navbar/mainnavbar.js";
+
 //Importing lower navbar for video page
 
 import {g, videolowernavbarFunc, allVideos, allVideosClick, categoryVideos, categoryVideosClick, playlistVideos, playlistVideosClick} from "./videolowernavbar.js"
@@ -18,6 +22,10 @@ let clickFunc = () => {
     playlistVideosClick();
 
 }
+
+//Function calling for upper navbar and its different functionalities
+
+g('uppernavbar').innerHTML = navbar();
 
 //Function calling for lower navbar and its different functionalities
 

@@ -1,4 +1,6 @@
+    //Importing upper navbar
 
+    import navbar from "./navbar/mainnavbar.js";
 
     //Importing lower navbar for video page
 
@@ -20,6 +22,10 @@
         playlistVideosClick();
 
     }
+
+    //Function calling for upper navbar and its different functionalities
+
+    g('uppernavbar').innerHTML = navbar();
 
     //Function calling for lower navbar and its different functionalities
 

@@ -3,7 +3,6 @@
         font-family: Arial, Helvetica, sans-serif;
         width:75%;
         margin: auto;
-        margin-top: -20px;
         box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     }
 
@@ -11,10 +10,9 @@
         padding-left: 25px;
         margin-bottom: 5px;
         font-size: 28px;
-        padding-top: 28px;
     }
 
-    h3 {
+    #h {
         padding-left: 25px;
         margin-bottom: -95px; 
     }

@@ -17,7 +17,7 @@
             display: flex;
             justify-content: flex-start;
             gap:40px;
-            padding: 20px;
+            padding: 17px 3px;
         }
         #headers>div {
             background-color:#cfe0db;

@@ -1,4 +1,8 @@
-    
+    //Importing upper navbar
+
+    import navbar from "./navbar/mainnavbar.js";
+
+
     //Importing functions from navbarlower.js
 
     import {g, navbarlower, currentMatch,currentMatchClick, currentFutureMatch,currentFutureMatchClick, matchByDay, matchByDayClick, teamFunc,teamClick, archFunc, archClick} from "./navbarlower.js";
@@ -207,6 +211,10 @@
         return document.createElement(tag);
     }
 
+    
+    //Function calling for upper navbar and its different functionalities
+
+    g('uppernavbar').innerHTML = navbar();
 
 
     //Function calling for lower navbar and its different functionalities
@@ -224,7 +232,7 @@
 
     window.addEventListener('load', async (event) => {
 
-        const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules'
+        //const url = 'https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules'
 
         let response = await fetch(url, {
 
