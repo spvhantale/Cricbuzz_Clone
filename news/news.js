@@ -18,12 +18,22 @@ let clickFunc = () => {
 
 document.querySelector("#newsnavbar").innerHTML=navbarlowers();
 clickFunc();
-cricbuzzplus()
-
+newslower();
+    const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
+		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+	}
+};
+    fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
+	.then(response => response.json())
+	.then(response => append(response.newsList))
+	.catch(err => console.error(err));
     const option = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '2eabeba429msh7fcbdf39ed18ec5p15a68cjsn68ae23da56c5',
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
@@ -31,18 +41,6 @@ cricbuzzplus()
 	.then(response => response.json())
 	.then(response => append2(response.photoGalleryInfoList))
 	.catch(err => console.error(err));
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
-            'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/topics/349', options)
-        .then(response => response.json())
-        .then(response => append(response.storyList))
-        .catch(err => console.error(err));
     let append=(array)=>{
     let allstories=document.querySelector("#allstories");
     array.forEach(element => {
@@ -52,7 +50,6 @@ cricbuzzplus()
             // console.log(element.story)
             let div=document.createElement("div");
             div.addEventListener("click",function(){
-                // console.log("Swapnil")
                 localStorage.setItem("newspage",JSON.stringify(element));
                 window.location.href="../news/newspage.html";
             })
@@ -79,6 +76,7 @@ cricbuzzplus()
         }  
     });
 }
+
 let append2=(array)=>{
     
     let latestphots=document.querySelector("#latestphots");
@@ -100,4 +98,3 @@ let append2=(array)=>{
         }  
     });
 }
-

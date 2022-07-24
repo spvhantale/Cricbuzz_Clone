@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="ranking.css" />
+    <link rel="stylesheet" href="../navbar/mainnavbar.css" />
+    <link rel="stylesheet" href="../navbar/mainnavbar.css" />
+    <link rel="stylesheet" href="../schedule/navbarlower.css">
   </head>
   <body>
+    <div id="navbar"></div>
+    <div id="navlowerschedule"></div>
     <div id="container">
       <h1>ICC Cricket Rankings - Men's Batting</h1>
-      <button>Men</button>
-      <button>Women</button>
+      <button id="men">Men</button>
+      <button id="women">Women</button>
       <div id="specific">
-        <div><a href="rankBatMen.html">Batting</a></div>
-        <div><a href="rankBowlMen.html">Bowling</a></div>
-        <div><a href="rankAllMen.html">All-Rounder</a></div>
-        <div><a href="rankTeamMen.html">Team</a></div>
+        <div id="batting"><a href="../ranking/rankBatMen.html">Batting</a></div>
+        <div id="bowling"><a href="../ranking/rankBowlMen.html">Bowling</a></div>
+        <div id="allrounder"><a href="../ranking/rankAllMen.html">All-Rounder</a></div>
+        <div id="team"><a href="../ranking/rankTeamMen.html">Team</a></div>
       </div>
       <div>
         <button id="test">TEST</button>
@@ -30,14 +35,15 @@
       <h3>Country</h3>
       <h3>Rating</h3>
     </div>
-    <div id="list_box">
-      <!-- <div id="listBox_navbar">
-        <h3>Position</h3>
-        <h3></h3>
-        <h3>Player</h3>
-        <h3>Country</h3>
-        <h3>Rating</h3>
-      </div> -->
+    <div id="part">
+      <div id="list_box"></div>
+      <div id="latestphotos">
+        <h2 id="latest">Latest Images</h2>
+      </div>
+    </div>
+
+    <div id="footer">
+  
     </div>
   </body>
 </html>

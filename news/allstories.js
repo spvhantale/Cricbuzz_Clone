@@ -1,5 +1,5 @@
-import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "./navbarlowernews.js"
-import {navbar,footer} from "./navbar/mainnavbar.js"
+import {g, navbarlowers, allstories,allstoriesClick, cricbuzzplus,cricbuzzplusClick, newslower, newslowerClick, topicslower,topicslowerClick, spotlightlower, spotlightlowerClick} from "../news/navbarlowernews.js"
+import {navbar,footer} from "../navbar/mainnavbar.js"
 document.querySelector("#navbar").innerHTML=navbar();
 document.querySelector("#footer").innerHTML=footer();
 let clickFunc = () => {
@@ -18,11 +18,11 @@ let clickFunc = () => {
 
 document.querySelector("#newsnavbar").innerHTML=navbarlowers();
 clickFunc();
-newslower();
+allstories();
     const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 	}
 };
@@ -33,7 +33,7 @@ newslower();
     const option = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '2eabeba429msh7fcbdf39ed18ec5p15a68cjsn68ae23da56c5',
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
@@ -50,8 +50,9 @@ newslower();
             // console.log(element.story)
             let div=document.createElement("div");
             div.addEventListener("click",function(){
+                console.log("Swapnil")
                 localStorage.setItem("newspage",JSON.stringify(element));
-                window.location.href="newspage.html";
+                window.location.href="../news/newspage.html";
             })
             let div1=document.createElement("div");
             console.log(element);
@@ -76,7 +77,6 @@ newslower();
         }  
     });
 }
-
 let append2=(array)=>{
     
     let latestphots=document.querySelector("#latestphots");

@@ -241,7 +241,7 @@ document.querySelector("#footer").innerHTML=footer();
 
             headers: {
 
-                'X-RapidAPI-Key': 'cbda66dca2msh9923d82f28317c4p1b2a41jsn3f71b7f35523',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -419,7 +419,7 @@ document.querySelector("#footer").innerHTML=footer();
 
             headers: {
 
-                'X-RapidAPI-Key': 'cbda66dca2msh9923d82f28317c4p1b2a41jsn3f71b7f35523',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -468,7 +468,7 @@ document.querySelector("#footer").innerHTML=footer();
 
             headers: {
 
-                'X-RapidAPI-Key': 'cbda66dca2msh9923d82f28317c4p1b2a41jsn3f71b7f35523',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -517,7 +517,7 @@ document.querySelector("#footer").innerHTML=footer();
 
             headers: {
 
-                'X-RapidAPI-Key': 'cbda66dca2msh9923d82f28317c4p1b2a41jsn3f71b7f35523',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -565,7 +565,7 @@ document.querySelector("#footer").innerHTML=footer();
 
             headers: {
 
-                'X-RapidAPI-Key': 'cbda66dca2msh9923d82f28317c4p1b2a41jsn3f71b7f35523',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 

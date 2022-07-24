@@ -1,17 +1,17 @@
 function navbar(){
     return`  <div id="search">
-    <img id="logcon"  src="https://www.cricbuzz.com/images/cb_logo.svg" />
+    <a id="anchor" href="../index.html"><img id="logcon"  src="https://www.cricbuzz.com/images/cb_logo.svg" /></a>
     
 
     <div class="navbar">
 
       <div class="dropdown">
-       <a href="https://www.cricbuzz.com/cricket-match/live-scores"><button class="dropbtn" >LIVE SCORE  </button></a>
+       <a href="../livescore/livescore.html"><button class="dropbtn" >LIVE SCORE  </button></a>
       </div>
   
   
       <div class="dropdown">
-      <a href="https://www.cricbuzz.com/cricket-schedule/upcoming-series/international"><button class="dropbtn" >SCHDULE</button></a>
+      <a href="../schedule/schedule.html"><button class="dropbtn" >SCHEDULE</button></a>
       </div>
   
   
@@ -27,17 +27,17 @@ function navbar(){
         <div class="dropdown-content">
           <div class="row">
             <div class="column">
-              <a href="#">All Stories</a>
-              <a href="#">Cricbuzz Plus</a>
-              <a href="#">Latest News</a>
-              <a href="#">Topics</a>
-              <a href="#">Spotlight</a>
-              <a href="#">Opinions</a>
-              <a href="#">Specials</a>
-              <a href="#">Stats & Analysis</a>
-              <a href="#">Interviews</a>
-              <a href="#">Live Blogs</a>
-              <a href="#">Harsha Bhogle</a>
+              <a href="../news/allstories.html">All Stories</a>
+              <a href="../news/cricbuzzplus.html">Cricbuzz Plus</a>
+              <a href="../news/news.html">Latest News</a>
+              <a href="../news/topic.html">Topics</a>
+              <a href="../news/spotlight.html">Spotlight</a>
+              <a href="../news/allstories.html">Opinions</a>
+              <a href="../news/allstories.html">Specials</a>
+              <a href="../news/allstories.html">Stats & Analysis</a>
+              <a href="../news/allstories.html">Interviews</a>
+              <a href="../news/allstories.html">Live Blogs</a>
+              <a href="../news/allstories.html">Harsha Bhogle</a>
             </div>
         </div>
       </div>
@@ -112,9 +112,9 @@ function navbar(){
         <div class="dropdown-content">
           <div class="row">
             <div class="column">
-              <a href="#">All Videos</a>
-              <a href="#">Catagories</a>
-              <a href="#">Playlists</a>
+              <a href="../videopage/videopageall.html">All Videos</a>
+              <a href="../videopage/videopagecategory.html">Catagories</a>
+              <a href="../videopage/videopageplaylist.html">Playlists</a>
           </div>
         </div>
       </div>
@@ -127,8 +127,8 @@ function navbar(){
         <div class="dropdown-content">
           <div class="row">
             <div class="column">
-              <a href="#">ICC Ranking-Men</a>
-              <a href="#">ICC Ranking-Women</a>
+              <a href="../ranking/rankBatMen.html">ICC Ranking-Men</a>
+              <a href="../ranking/rankBatMen.html">ICC Ranking-Women</a>
             </div>
           </div>
         </div>
@@ -155,16 +155,16 @@ function navbar(){
       </div>
   
       <div id="cricketbuzz" class="dropdown" >
-   <a> <button id="cricol" class="dropbtn">CRICKETBUZZ PLUS</button></a>
+   <a href="../news/cricbuzzplus.html"> <button id="cricol" class="dropbtn">CRICKETBUZZ PLUS</button></a>
         </div>
       </div>
 
 
     <div id="sin">
-      <h3><a href="./navbar/login.html"><img id="search_icon" src="https://img.icons8.com/small/16/FFFFFF/search--v1.png" ></a></h3>
+      <h3><a href=""><img id="search_icon" src="https://img.icons8.com/small/16/FFFFFF/search--v1.png" ></a></h3>
     </div> 
      <div>
-      <a href="./navbar/login.html"><img id="account" src="https://img.icons8.com/small/16/FFFFFF/user-male-circle.png" /></a>
+      <a href="../navbar/login.html"><img id="account" src="https://img.icons8.com/small/16/FFFFFF/user-male-circle.png" /></a>
     </div>
   </div> 
 </div>
@@ -179,7 +179,7 @@ function navbar(){
 }
 function footer(){
   return `
-        <img src="Footer.png" alt="">
+        <img src="../navbar/footer.png" alt="">
     `
 }
 export {navbar,footer};

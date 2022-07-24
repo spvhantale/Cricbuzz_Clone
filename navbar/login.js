@@ -15,7 +15,7 @@ function submitProduct() {
   let p = new User_email(email);
   arr=p;
   localStorage.setItem('userEmail', JSON.stringify(arr));
-window.location.href="signup.html";
+window.location.href="../navbar/signup.html";
 }
 
 let s=JSON.parse(localStorage.getItem('userEmail'));
@@ -27,7 +27,7 @@ function validation() {
 
  else if(document.getElementById("email").value==s.email){
   console.log("Yes");
-  window.location.href='./home.html';
+  window.location.href='../index.html';
   }
   else {
     submitProduct();
