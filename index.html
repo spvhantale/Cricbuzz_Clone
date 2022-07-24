@@ -1,141 +1,305 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d40534ccd9.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="../navbar/mainnavbar.css">
+    <title>Cricbuzz</title>
     <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
         body{
-            background-color: #ebebeb;
-        }
-        #maincontainer{
-            width: 1075px;
-            height: 800px;
+            width: 80%;
             margin: auto;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        }
+        .score{
+            border-left: 1px solid grey;
+            padding-left: 10px;
+            padding-right: 10px;
             background-color: white;
         }
-        #toplivenavbar{
-            width: 100%;
-            height: auto;
-            margin: auto;
+        .score>div{
             display: flex;
-            gap: 20px;
-            font-size: 18px;
-            margin-bottom: 10px;
-            margin-left: 30px;
+        }
+        .score>div>p{
+            padding-right: 10px;
+        }
+        #homepageslider{
+            padding-bottom: 20px;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        }
+        
+        #homepageslider>h3{
             padding-top: 10px;
-
+            padding-left: 10px;
+            color: rgb(2,128,98);
         }
-        #toplivenavbar>p{
-            cursor: pointer;
-        }
-        #toplivenavbar>p:hover{
-            text-decoration: underline;
-            color: #009270;
-            
-        }
-        #toplivenavbar+hr+h1{
-            margin-left: 30px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-        #bottomlivenavbar{
-            width: 100%;
-            height: auto;
+        #slider{
+            display: flex;
+            justify-content: center;
             margin: auto;
-            display: flex;
-            gap: 20px;
-            font-size: 18px;
-            margin-bottom: 10px;
-            margin-left: 30px;
-            padding-top: 10px;
-
+        
         }
-        #bottomlivenavbar>p{
-            cursor: pointer;
+        #homepagebody{
+            padding-top: 8px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
         }
-        #bottomlivenavbar>p:hover{
-            text-decoration: underline;
-            color: #009270;
-            
+        .middlepagenews,.leftpagenews,.latestphotsview,.scheduleview,.specialsview{
+            padding: 0px 20px;
+            background-color: white; 
+            padding-top:10px ;
         }
-        #lireup{
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 30px;
+        #middleview{
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;        }
+        #latestnews>h3,#latestphots>h3,#schedule>h3,#specials>h3{
+            color: rgb(2,128,98);
         }
+        .leftpagenews{
+            background-color: white;
+        }
+      #latestnews,#latestphots,#schedule,#specials{
+        padding: 10px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        margin-bottom: 10px;
+      }
     </style>
 </head>
 <body>
-    <div id="maincontainer">
-    <div id="toplivenavbar">
-        <p>Current Matches</p>
-        <p>Current & Future Series</p>
-        <p>Matches By Day</p>
-        <p>Teams</p>
-        <p>Series Archivessss</p>
+    <div id="navbar">
+
     </div>
-    <hr>
-    <h1>Live Cricket Score</h1>
-    <div id="bottomlivenavbar">
-        <p id="live">Live</p>
-        <p id="recent">Recent</p>
-        <p id="upcoming">Upcoming</p>
+    <div id="homepageslider">
+        <h3>FEATURED MATCHES</h3>
+        <div id="slider">
+            
+    
+        </div>
     </div>
-    <hr>
-    <div id="lireup"></div>
-  <div id="container"></div> 
-</div> 
+    <div id="homepagebody">
+        <div id="leftview">
+            <div id="latestnews">
+                <h3>LATEST NEWS</h3>
+    
+            </div>
+            <div id="latestphots">
+                <h3>LATEST PHOTOS</h3>
+
+            </div>
+            <div id="schedule">
+                <h3>SCHEDULE</h3>
+            </div>
+        </div>
+       
+        <div id="middleview">
+
+        </div>
+        <div id="rightview">
+            <div id="specials">
+                <h3>SPECIALS</h3>
+    
+            </div>
+        </div>
+        
+    </div>
+    <div id="footer">
+
+    </div>
 </body>
-<script>
-  const options = {
+</html>
+<script type="module">
+    import {navbar,footer} from "../navbar/mainnavbar.js"
+    console.log(navbar)
+document.querySelector("#navbar").innerHTML=navbar();
+document.querySelector("#footer").innerHTML=footer();
+const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '2eabeba429msh7fcbdf39ed18ec5p15a68cjsn68ae23da56c5',
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
+		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+	}
+};
+fetch('https://unofficial-cricbuzz.p.rapidapi.com/matches/get-schedules?matchType=international', options)
+	.then(response => response.json())
+	.then(response => append3(response.scheduleAdWrapper))
+	.catch(err => console.error(err));
+fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
+	.then(response => response.json())
+	.then(response => append(response.newsList))
+	.catch(err => console.error(err));
+    const option = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 		'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
 	}
 };
 
-fetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', options)
-	.then((res) => {
-        return res.json()})
-	.then((res) => {
-        console.log(res); 
-        append(res.typeMatches)})
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/index', option)
+	.then(response => response.json())
+	.then(response => append2(response.photoGalleryInfoList))
 	.catch(err => console.error(err));
 
-let append = (data) => {
-   let lireup = document.querySelector("#lireup");
-   data.forEach(ele => {
-      let button1 = document.createElement("button");
-      button1.addEventListener("click", function myClick(ele){
-        let container = document.querySelector("#container");
-        container.innerHTML=null;
-        let h2 = document.createElement("h2");
-        h2.innerText=ele.seriesMatches.seriesAdWrapper.seriesName;
-        container.append(h2);
+fetch('https://cricbuzz-cricket.p.rapidapi.com/photos/v1/detail/5374', option)
+	.then(response => response.json())
+	.then(response => append4(response.photoGalleryDetails))
+	.catch(err => console.error(err));
+
+fetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', option)
+	.then(response => response.json())
+	.then(response => append0(response.typeMatches[0].seriesMatches))
+	.catch(err => console.error(err));
+
+
+function append0(array){
+    let count=0
+    let slider=document.querySelector("#slider");
+    array.forEach(element => {
+        count++;
+        if(count>4){
+            return;
+        }
+        if(element.seriesAdWrapper==undefined){
+            return 
+        }else{
+            // console.log(element.seriesAdWrapper.matches[0])
+        let div=document.createElement("div");
+        div.addEventListener("click",function(){
+            window.location.href="../livescore/livescore.html"
+        })
+        div.setAttribute("class","score")
+        let div1=document.createElement("div");
+        let div2=document.createElement("div");
+        let team=document.createElement("p");
+        let y=element.seriesAdWrapper.matches[0]
+        let p=document.createElement("p");
+        p.innerText=y.matchInfo.status;
+        p.style.color="blue"
+        team.innerText=y.matchInfo.team1.teamSName+" ";
+        let team2=document.createElement("p");
+        team2.innerText=y.matchInfo.team2.teamSName+" ";
+        let score=document.createElement("p");
+        let x=y.matchScore
+        score.innerText=` ${x.team1Score.inngs1.runs}-${x.team1Score.inngs1.wickets}(${x.team1Score.inngs1.overs})`;
+        let score1=document.createElement("p");
+        score1.innerText=` ${x.team2Score.inngs1.runs}-${x.team2Score.inngs1.wickets}(${x.team2Score.inngs1.overs})`;
+        
+        div1.append(team,score);
+        div2.append(team2,score1);
+        div.append(div1,div2,p);
+        slider.append(div);
+    }
     });
-      button1.innerText=ele.matchType;
-      lireup.append(button1);
-   });
 }
 
-// function myidInternational(data){
-//     let container = document.querySelector("#container");
-//    data.forEach(ele => {
-//     let h2 = document.createElement("h2");
-//     h2.innerText=ele.seriesMatches.seriesAdWrapper.matches.matchInfo.seriesName;
-//     container.append(h2);
 
-//    })
-// }
+let append=(array)=>{
+    append1(array);
+    let middleview=document.querySelector("#middleview");
+    array.forEach(element => {
+        if(element.story==undefined){
+            return 
+        }else{
+            // console.log(element.story)
+            let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                console.log("Swapnil")
+                localStorage.setItem("newspage",JSON.stringify(element));
+                window.location.href="../news/newspage.html";
+            })
+            div.setAttribute("class","middlepagenews")
+            let p=document.createElement("p");
+            p.innerText=element.story.context;
+            p.style.color="gray";
+            p.style.textTransform="uppercase";
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/420x235/i1/c${element.story.coverImage.id}/smith-supersport-and-the-min.jpg`
+            let h2=document.createElement("h2");
+            h2.innerText=element.story.hline;
+            let p2=document.createElement("p");
+            p2.innerText=element.story.intro;
+            let hr=document.createElement("hr");
+            div.append(p,img,h2,p2);
+             middleview.append(div,hr);
+        }  
+    });
+}
+let append1=(array)=>{
+    let latestnews=document.querySelector("#latestnews");
+    array.forEach(element => {
+        if(element.story==undefined){
+            return 
+        }else{
+            // console.log(element.story)
+            let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                console.log("Swapnil")
+                localStorage.setItem("newspage",JSON.stringify(element));
+                window.location.href="../news/newspage.html";
+            })
+            div.setAttribute("class","leftpagenews")
+            let h2=document.createElement("p");
+            h2.innerText=element.story.hline;
+            let hr=document.createElement("hr");
+            div.append(h2);
+            latestnews.append(div,hr);
+        }  
+    });
+}
+let append2=(array)=>{
+    let latestphots=document.querySelector("#latestphots");
+    array.forEach(element => {
+        if(element.photoGalleryInfo==undefined){
+            return 
+        }else{
+            // console.log(element.story)
+            let div=document.createElement("div");
+            div.setAttribute("class","latestphotsview")
+            let p=document.createElement("p");
+            p.innerText=element.photoGalleryInfo.headline;
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.photoGalleryInfo.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+            div.append(img,p);
+            let hr=document.createElement("hr");
+            latestphots.append(div,hr);
+        }  
+    });
+}
+let append3=(array)=>{
+    let schedule=document.querySelector("#schedule");
+    array.forEach(element => {
+        if(element.matchScheduleMap==undefined){
+            return 
+        }else{
+            let div=document.createElement("div");
+            div.addEventListener("click",function(){
+                window.location.href="../schedule/schedule.html";
+            })
+            div.setAttribute("class","scheduleview")
+            let p=document.createElement("p");
+            p.innerText=element.matchScheduleMap.date;
+            let p1=document.createElement("p");
+            p1.innerText=element.matchScheduleMap.matchScheduleList[0].seriesName;
+            div.append(p1,p);
+            let hr=document.createElement("hr");
+            schedule.append(div,hr);
+        }  
+    });
+}
+let append4=(array)=>{
+    let specials=document.querySelector("#specials");
+    array.forEach(element => {
+            let div=document.createElement("div");
+            div.setAttribute("class","specialsview")
+            let p=document.createElement("p");
+            p.innerText=element.caption;
+            let img=document.createElement("img");
+            img.src=`https://www.cricbuzz.com/a/img/v1/165x95/i1/c${element.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+            div.append(img,p);
+            let hr=document.createElement("hr");
+            specials.append(div,hr);
+    });
+}
+
 </script>
-</html>

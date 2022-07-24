@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d40534ccd9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../navbar/mainnavbar.css">
+    <link rel="stylesheet" href="../schedule/navbarlower.css">
+
+    <title>livescore</title>
+    <style>
+        
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            width: 80%;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+            /* background-color: #ebebeb; */
+
+        }
+        #maincontainer{
+            width: 1075px;
+            height: auto;
+            margin: auto;
+            background-color: white;
+        }
+        #maincontainer>hr+h1{
+            margin-left: 30px;
+        }
+        #bottomlivenavbar{
+            width: 100%;
+            height: auto;
+            margin: auto;
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            padding-top: 10px;
+
+        }
+        #bottomlivenavbar>p{
+            cursor: pointer;
+        }
+        #bottomlivenavbar>p:hover{
+            color: #009270;
+            border-bottom: 3px solid;
+            padding-bottom: 5px;
+        }
+        #lireup{
+            width: 100%;
+            display: flex;
+            margin-top: 20px;
+            margin-left: 30px;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30px;
+        }
+        #lireup>button{
+            background-color: #cfe0db;
+            padding: 3px 20px 3px 20px;
+            border-radius: 25px;
+            border: 0px;
+        }
+        #lireup>button:hover{
+            background-color: #009270;
+            color: white;
+        }
+        #container{
+            margin-left: 30px;
+            
+        }
+        #container>h2{
+            border: 0px;
+            margin-top: 20px;
+            padding: 5px 0px 5px 10px;
+            background-color: #ebebeb;
+        }
+        #container>h2+p{
+            color: #ebebeb;
+        }
+        #container>div{
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        #containerScore{
+            width: 52%;
+            height: auto;
+            margin-top: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            
+            display: flex;
+            
+        }
+        #containerScore>div:nth-child(1){
+            width: 3px;
+            height: auto;
+            background-color: blue;
+        }
+        #containerScore>div:nth-child(2){
+            width: 100%;
+            height: auto;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            background-color: #ebebeb;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #container>div>div:last-child{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            color: blue;
+        }
+        #container>div>div:last-child>div{
+            width: 1px;
+            height: 20px;
+            background-color: grey;
+        }
+        #main{
+            width: 100%;
+            height: auto;
+            display: flex;
+        }
+        #main>div:nth-child(1){
+            width: 68%;
+        }
+        #main>div:nth-child(3){
+            width: 29%;
+        }
+        #main>div:nth-child(2){
+            width: 0.5px;
+            height: auto;
+            margin-left: 10px;
+            background-color: grey;
+        }
+        #container1{
+            margin-left: 10px;
+            line-height: 20px;
+        }
+        #container1>div:nth-child(2)>h2{
+            color: #009270;
+        }
+        #container1>div>img{
+            border-radius: 10px;
+            border: 0px;
+        }
+        #container1>div>img+p{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #container1>div>img+p+p{
+            font-size: 16px;
+            color: gray;
+        }
+        #container1>div{
+            margin: auto;
+            margin-top: 15px;
+        }
+        #navlowerschedule{
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+  <div id="navbar">
+
+  </div>
+    <hr>
+    <div id="navlowerschedule" style="font-size: 20px;">
+
+    </div>
+    <h1 style="margin-left:30px;margin-top:10px;">Live Cricket Score</h1>
+    <div id="bottomlivenavbar">
+        <p id="live">Live</p>
+        <p id="recent">Recent</p>
+        <p id="upcoming">Upcoming</p>
+    </div>
+    <hr>
+    <div id="main">
+        <div>
+        <div id="lireup"></div> 
+       <div id="container"></div>
+      </div>
+      <div></div>
+       <div id="container1">
+        <div>
+            <img src="https://s0.2mdn.net/simgad/13878685837681317097" alt="">
+        </div>
+        <div>
+            <h2  style="margin-bottom:20px;">Latest News</h2>
+            <img src="https://www.cricbuzz.com/a/img/v1/290x164/i1/c239629/gill-iyer-supported-dhawan.jpg" alt="">
+            <p>Gill & Iyer supported Dhawan, runs from top 3 a big positive for India: Parthiv</p>
+            <p>8h ago</p>
+        </div>
+        <div>
+            <img src="https://www.cricbuzz.com/a/img/v1/290x164/i1/c239623/ipl-has-helped-me-perform-in-t.jpg" alt="">
+            <p>IPL has helped me perform in tough situations & become a senior bowler: Chahal</p>
+            <p>10h ago</p>
+        </div>
+        <div>
+            <img src="https://www.cricbuzz.com/a/img/v1/290x164/i1/c239501/chance-to-shine-in-odis-ft-sh.jpg" alt="">
+            <p>Chance to Shine in ODIs ft. Shubman Gill, Sanju Samson</p>
+            <p>Jul 20 2022</p>
+        </div>
+        <div>
+            <img src="https://www.cricbuzz.com/a/img/v1/220x124/i1/c237370/england-vs-india-t20is-previ.jpg" alt="">
+            <p>England vs India, T20Is: Preview ft. Michael Vaughan & Harsha Bhogle</p>
+            <p>20h ago</p>
+        </div>
+       </div>
+       
+    </div>
+    
+</div> 
+<div id="footer">
+
+</div>
+</body>
+<script src="../livescore/livescore.js" type="module"></script>
+</html>

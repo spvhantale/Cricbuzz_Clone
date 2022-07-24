@@ -6,27 +6,30 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 body {
-  width: 70%;
+  width: 80%;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
   margin: auto;
-  border: 2px solid black;
+
 }
 #container button {
-  padding: 15px;
-  border-radius: 5px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: none;
   gap: 5px;
+  background-color: rgb(228, 223, 223);
 }
 
 #container {
   /* display: flex; */
   justify-content: space-around;
-  padding: 10%;
+  padding: 2% 2%;
   padding-bottom: 20px;
 }
 #list_box {
   width: 70%;
   margin-top: 20px;
   padding: 10px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   padding-top: 0;
 }
 .box {
@@ -41,21 +44,49 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   background-color: rgb(228, 223, 223);
-  margin-left: 10%;
+  /* margin-left: 10%; */
 }
 #specific {
   display: flex;
   /* border: 2px solid red; */
   padding: 10px;
   padding-left: 0;
+  
 }
 #specific > div {
-  border: 1px dotted gray;
+  border: 1px dotted;
   padding: 10px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: none;
+  /* background-color: rgb(228, 223, 223); */
 }
 a {
-  font-style: normal;
-  color: black;
+  /* font-style: normal; */
+  /* color: black; */
   padding: 10px;
-  text-decoration: none;
+  /* text-decoration: none; */
+}
+#footer > img {
+  width: 100%;
+  padding-top: 20%;
+  height: 500px;
+}
+#part {
+  display: flex;
+}
+.latestphotosview {
+  width: 300px;
+  border: 1px dotted;
+  margin-left: 10px;
+  padding: 10px;
+}
+.latestphotosview > img {
+  display: block;
+  margin: auto;
+}
+#latest {
+  text-align: center;
+  padding: 10px;
+  color: #009270;
 }

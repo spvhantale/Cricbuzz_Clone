@@ -39,7 +39,7 @@ let currentMatchClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="../livescore/livescore.html"
 
     })}`
 }
@@ -70,7 +70,7 @@ let currentFutureMatchClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="../schedule/schedule.html"
 
     })}`
 }
@@ -100,7 +100,7 @@ let matchByDayClick = () => {
 
         event.preventDefault();
 
-        window.location.href ="./schedule.html"
+        window.location.href ="../schedule/schedule.html"
 
     })}`
 }
@@ -129,7 +129,7 @@ let teamClick = () => {
 
         event.preventDefault();
 
-        window.location.href =""
+        window.location.href ="../ranking/rankBatMen.html"
 
     })}`
 }

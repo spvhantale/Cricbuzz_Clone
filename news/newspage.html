@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d40534ccd9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../navbar/mainnavbar.css">
+    <title>newspage</title>
+    <style>
+        body{
+            width: 80%;
+            margin: auto;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        }
+        #newspage{
+            padding: 20px;
+            border-right: 1px solid #D3D3D3;
+            width: 100%;        
+        }
+        #lowerbody{
+            width: 100%;
+            display: flex;
+            gap: 20px;
+        }
+        .latestnewsview{
+            display: flex;
+           
+        }
+        #latestnews{
+            width: 60%;
+            margin: auto;
+        }
+        #latestnews>h3{
+            color:rgb(2,128,98); 
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+
+    </div>
+    <div id="lowerbody">
+        <div id="newspage">
+
+        </div>
+        <div id="latestnews">
+            <h3>LATEST NEWS</h3>
+
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+</html>
+<script type="module">
+    import {navbar,footer} from "../navbar/mainnavbar.js"
+document.querySelector("#navbar").innerHTML=navbar();
+document.querySelector("#footer").innerHTML=footer();
+let ele=JSON.parse(localStorage.getItem("newspage"));
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '412ee806edmsh2fac8ee2a346dabp1b7d50jsnb24cdfea69db',
+		'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
+	}
+};
+fetch('https://unofficial-cricbuzz.p.rapidapi.com/news/list', options)
+	.then(response => response.json())
+	.then(response => append1(response.newsList))
+	.catch(err => console.error(err));
+let append=(element)=>{
+    let newspage=document.querySelector("#newspage");
+            let div=document.createElement("div");
+            console.log(element);
+            div.setAttribute("id","newsallstories")
+            let p=document.createElement("p");
+            p.innerText=`${element.story.context}`;
+            p.style.color="gray";
+            p.style.marginTop="-1px"
+            p.style.textTransform="uppercase";
+            let img=document.createElement("img");
+            img.style.borderRadius="5px";
+            // img.style.height="150px";
+            img.src=`https://www.cricbuzz.com/a/img/v1/595x396/i1/c${element.story.coverImage.id}/dunkley-cracked-a-quick-fire-f.jpg`
+            let h2=document.createElement("h1");
+            h2.innerText=element.story.hline;
+            let p2=document.createElement("p");
+            p2.innerText=`${element.story.intro}.Proident quis adipisicing enim laborum 
+            minim enim mollit laboris sunt pariatur sunt irure do. Veniam anim cillum 
+            consequat nulla ea duis ut voluptate deserunt culpa anim exercitation. In labore dolor 
+            dolore cillum irure eu in duis consequat. Commodo cillum laboris nostrud nostrud irure 
+            sit commodo do nisi veniam quis cillum. Non laboris consequat ex nostrud elit. Labore 
+            eu aliquip esse ad occaecat anim occaecat qui dolor nulla exercitation. Qui sint et nisi 
+            incididunt consectetur dolore veniam.Proident quis adipisicing enim laborum minim enim 
+            mollit laboris sunt pariatur sunt irure do. Veniam anim cillum consequat nulla ea duis
+             ut voluptate deserunt culpa anim exercitation. In labore dolor dolore cillum irure eu 
+             in duis consequat. Commodo cillum laboris nostrud nostrud irure sit commodo do nisi 
+             veniam quis cillum. Non laboris consequat ex nostrud elit. Labore eu aliquip esse ad 
+             occaecat anim occaecat 
+            qui dolor nulla exercitation. Qui sint et nisi incididunt consectetur dolore veniam.`;
+            // div1.append(p,h2,p2);
+            div.append(p,h2,img,p2);
+            newspage.append(div);
+}
+append(ele);
+        let append1=(array)=>{
+            let latestnews=document.querySelector("#latestnews");
+        array.forEach(element => {
+        if(element.story==undefined){
+            return 
+        }else{
+    console.log(element)
+            let div=document.createElement("div");
+            div.style.display="flex";
+            div.addEventListener("click",function(){
+                console.log("Swapnil")
+                localStorage.setItem("newspage",JSON.stringify(element));
+                window.location.href="../news/newspage.html";
+            })
+            div.setAttribute("class","latestnewsview")
+            let p=document.createElement("p");
+            p.innerText=element.story.hline;
+            let img=document.createElement("img");
+            img.style.borderRadius="5px";
+            img.src=`https://www.cricbuzz.com/a/img/v1/100x77/i1/c${element.story.imageId}/sri-lanka-v-pakistan-1st-test.jpg`;
+            let hr=document.createElement("hr");
+            div.append(img,p);
+            latestnews.append(div,hr);
+        }  
+    });
+}
+</script>

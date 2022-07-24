@@ -1,0 +1,233 @@
+#main_div{
+    height: 300px;
+    width: 280px;
+    /* border: 1px solid black; */
+    align-self: center;
+    margin-left: 590px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 100px;
+    margin-bottom: 130px;
+}
+
+#user_formm > input{
+    height: 35px;
+    width: 260px;
+    
+}
+#main_div > button{
+    width: 270PX;
+    height: 40px;
+    background-color: #009270;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    margin-top: 10px;
+    color: white;
+    font-size: 12px;   
+    margin-bottom: 20px;
+}
+#main_div > button:hover{
+    background-color: white;
+    text-decoration: black;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid  #009270;
+    color: black;
+   transition-duration: 0.2s;
+   color:  #009270 ;
+}
+
+p{
+ font-weight: lighter;
+ font-size: 12px;
+ font-family: Arial, Helvetica, sans-serif;
+ color: rgb(50, 48, 48);
+ line-height: 20px;
+}
+#main_div>h3{
+   font-weight: lighter;
+   font-size: 25px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: rgb(50, 48, 48);
+   
+   }
+   h5{
+    color: rgb(50, 48, 48);
+    margin-bottom: 5px;
+   }
+   .container > #poster>img{
+    width: 97%; 
+    margin-left: 20px; 
+     margin-right: 20px; 
+     margin-bottom: 40px; 
+   
+}
+.container > #poster{
+    margin-top: 480px;
+    /* border: 1px solid black; */
+}
+
+#bottom_signup{
+display: flex;
+justify-content: end;
+/* border: 1px solid black; */
+}
+
+#bottom_signup > input{
+    height: 35px;
+    width: 220px;
+    margin-top: 11px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#bottom_signup > button{
+background-color: rgb(0,129,157) ;
+color: white ;
+width: 240PX; 
+height: 41px;
+    border: none;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+}
+
+#bottom_signup > button:hover{
+    background-color: white;
+    text-decoration: black;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgb(12,152,187);
+    color: rgb(0,129,157) ;
+   transition-duration: 0.2s;
+}
+
+#check{
+    display: flex;
+}
+
+#check>#chkbox{
+    margin-top: 16px;
+}
+
+#password_div{
+    display: flex;
+    height: 45px;
+    width: 265px;
+    border: 1px solid rgb(103, 102, 102);
+}
+
+#password_div > input{
+    border: none;
+}
+
+#password_div > input :focus {
+    outline: none;
+}
+
+#password_div > h5{
+    
+     margin-left: 40px;
+     color: rgb(12,152,187) ;
+    text-decoration: underline;
+   
+
+}
+
+#chk{
+    display: flex;
+    margin-bottom: -10px;
+}
+
+#chk > #card{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+#trk{
+    display: flex;
+    margin-bottom: -15px;
+
+}
+
+#trk > #truck{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+#brands{
+    display: flex;
+}
+
+#brands > #cloud{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+#edit_email{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -20px;
+}
+
+#edit_email > h6{
+    color: rgb(12,152,187) ;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+#emai_edit{
+margin-bottom: -10px;
+}
+
+
+textarea:focus,
+#Password:focus {
+    outline: none;
+
+}
+
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .centered {
+    position: absolute;
+    top: 60%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+  }
+
+
+  .footerDiv {
+    height: 300px;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-top: 50px;
+    background-color: rgb(246, 246, 246);
+}
+
+.footerTextDiv {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.footerTextDiv>div {
+    height: 250px;
+    width: 15.5%;
+    /* border: 1px solid blue; */
+}
+
+.footerTextDiv p {
+    font-size: 13px;
+}

@@ -1,7 +1,10 @@
-    
+    //Importing upper navbar
+
+    import {navbar,footer} from "../navbar/mainnavbar.js"
+document.querySelector("#footer").innerHTML=footer();
     //Importing functions from navbarlower.js
 
-    import {g, navbarlower, currentMatch,currentMatchClick, currentFutureMatch,currentFutureMatchClick, matchByDay, matchByDayClick, teamFunc,teamClick, archFunc, archClick} from "./navbarlower.js";
+    import {g, navbarlower, currentMatch,currentMatchClick, currentFutureMatch,currentFutureMatchClick, matchByDay, matchByDayClick, teamFunc,teamClick, archFunc, archClick} from "../schedule/navbarlower.js";
 
 
     //Function containing all the click functionality of navbarlower
@@ -207,6 +210,10 @@
         return document.createElement(tag);
     }
 
+    
+    //Function calling for upper navbar and its different functionalities
+
+    g('navbar').innerHTML = navbar();
 
 
     //Function calling for lower navbar and its different functionalities
@@ -234,7 +241,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -244,7 +251,7 @@
 
         let data = (await response.json()).scheduleAdWrapper;
 
-        console.log('data:', data[2])
+        console.log(data);
 
         appendFunc(data);
 
@@ -412,7 +419,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -461,7 +468,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -510,7 +517,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
@@ -558,7 +565,7 @@
 
             headers: {
 
-                'X-RapidAPI-Key': '3972bf7ab7msheb4ca8412b50e12p1e1fa0jsn22ddbd5be6fa',
+                'X-RapidAPI-Key': '3c00e01368msh2336d66b7012ca5p1d988fjsn5d636d7a776f',
 
                 'X-RapidAPI-Host': 'unofficial-cricbuzz.p.rapidapi.com'
 
