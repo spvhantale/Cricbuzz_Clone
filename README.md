@@ -54,7 +54,8 @@ Cloned:-  https://cricbuzz-masai.netlify.app/
 
 - Ranking Page
 ![Login](https://github.com/spvhantale/Cricbuzz_Demo/blob/main/cricbuzz/Ranking.png)
-![Screenshot 2022-12-19 154219](https://user-images.githubusercontent.com/103638279/208401913-5a534cbc-a454-486f-97e3-cfe0a795a2e9.png)
+![Screenshot 2022-12-19 154219](https://user-images.githubusercontent.com/103638279/208412092-7891ea39-e9b5-4bdb-b470-a037000281ac.png)
+
 
 
 
